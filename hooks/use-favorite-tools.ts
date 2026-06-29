@@ -21,18 +21,22 @@ export function useFavoriteTools() {
     setIsLoaded(true)
   }, [])
 
+  // Save to localStorage when favorites changes, only after initial load
+  useEffect(() => {
+    if (!isLoaded) return
+    try {
+      localStorage.setItem(FAVORITES_KEY, JSON.stringify(favorites))
+    } catch (e) {
+      console.error('Failed to save favorites to localStorage', e)
+    }
+  }, [favorites, isLoaded])
+
   const toggleFavorite = useCallback((toolId: string) => {
-    setFavorites((prev) => {
-      const updated = prev.includes(toolId)
+    setFavorites((prev) =>
+      prev.includes(toolId)
         ? prev.filter((id) => id !== toolId)
         : [...prev, toolId]
-      try {
-        localStorage.setItem(FAVORITES_KEY, JSON.stringify(updated))
-      } catch (e) {
-        console.error('Failed to save favorites to localStorage', e)
-      }
-      return updated
-    })
+    )
   }, [])
 
   const isFavorite = useCallback((id: string) => favorites.includes(id), [favorites])

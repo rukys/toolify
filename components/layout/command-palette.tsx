@@ -19,7 +19,14 @@ export function CommandPalette() {
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
         e.preventDefault()
-        setIsOpen((prev) => !prev)
+        setIsOpen((prev) => {
+          const next = !prev
+          if (next) {
+            setSearchQuery('')
+            setSelectedIndex(0)
+          }
+          return next
+        })
       }
     }
     window.addEventListener('keydown', handleKeyDown)
@@ -30,6 +37,8 @@ export function CommandPalette() {
   useEffect(() => {
     const handleOpen = () => {
       setIsOpen(true)
+      setSearchQuery('')
+      setSelectedIndex(0)
     }
     window.addEventListener('open-command-palette', handleOpen)
     return () => window.removeEventListener('open-command-palette', handleOpen)
@@ -38,11 +47,7 @@ export function CommandPalette() {
   // Focus input when palette opens
   useEffect(() => {
     if (isOpen) {
-      setSearchQuery('')
-      setSelectedIndex(0)
-      setTimeout(() => {
-        inputRef.current?.focus()
-      }, 50)
+      inputRef.current?.focus()
     }
   }, [isOpen])
 
@@ -63,6 +68,8 @@ export function CommandPalette() {
     if (!isOpen) return
 
     const handleNavigation = (e: KeyboardEvent) => {
+      if (filteredTools.length === 0) return
+
       if (e.key === 'ArrowDown') {
         e.preventDefault()
         setSelectedIndex((prev) => (prev + 1) % filteredTools.length)
