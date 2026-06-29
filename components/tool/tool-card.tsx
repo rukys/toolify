@@ -14,7 +14,7 @@ export function ToolCard({ tool }: ToolCardProps) {
       className="group relative flex flex-col justify-between p-6 rounded-xl border border-(--color-border) bg-(--color-surface) hover:border-(--color-primary) hover:shadow-lg transition-all duration-200 cursor-pointer overflow-hidden"
     >
       {/* Background Hover Glow */}
-      <div className="absolute inset-0 bg-linear-to-tr from-(--color-primary-light)/20 to-(--color-accent)/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+      <div className="absolute inset-0 bg-linear-to-tr from-(--color-primary-light)/20 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
       <div className="relative z-10 space-y-4">
         {/* Icon & Badges */}

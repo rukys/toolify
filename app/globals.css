@@ -136,13 +136,13 @@
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
 
-  /* Dark mode overrides for Custom Design System Tokens */
-  --color-surface: #0F172A;
-  --color-surface-alt: #1E293B;
-  --color-border: #334155;
-  --color-text-primary: #F1F5F9;
-  --color-text-secondary: #94A3B8;
-  --color-primary-light: #1E293B;
+  /* Dark mode overrides for Custom Design System Tokens (Refined True Dark theme) */
+  --color-surface: #09090B;          /* Zinc 950 - Premium Near-Black */
+  --color-surface-alt: #18181B;      /* Zinc 900 - Dark Charcoal */
+  --color-border: #27272A;           /* Zinc 800 - Elegant Muted Border */
+  --color-text-primary: #F4F4F5;     /* Zinc 100 - Clean Off-White Text */
+  --color-text-secondary: #A1A1AA;   /* Zinc 400 - Cool Muted Gray Text */
+  --color-primary-light: #172554;    /* Deep Blue 950 - Indigo/Blue Accent Highlight */
 }
 
 @layer base {
