@@ -87,36 +87,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Trust & Architecture Banner */}
-      <section className="max-w-6xl w-full mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-3 gap-6 border-b border-(--color-border)">
-        <div className="flex items-start gap-3 p-4">
-          <CircleCheck className="w-5 h-5 text-(--color-success) shrink-0 mt-0.5" />
-          <div>
-            <h4 className="text-sm font-semibold">100% Privacy by Default</h4>
-            <p className="text-xs text-(--color-text-secondary) mt-1">
-              Your files and text are processed locally inside your browser sandboxed environment.
-            </p>
-          </div>
-        </div>
-        <div className="flex items-start gap-3 p-4">
-          <CircleCheck className="w-5 h-5 text-(--color-success) shrink-0 mt-0.5" />
-          <div>
-            <h4 className="text-sm font-semibold">Zero Server Uploads</h4>
-            <p className="text-xs text-(--color-text-secondary) mt-1">
-              No server storage, no database. Zero threat of data leakage or exposure.
-            </p>
-          </div>
-        </div>
-        <div className="flex items-start gap-3 p-4">
-          <CircleCheck className="w-5 h-5 text-(--color-success) shrink-0 mt-0.5" />
-          <div>
-            <h4 className="text-sm font-semibold">No Paywall, No Limits</h4>
-            <p className="text-xs text-(--color-text-secondary) mt-1">
-              Convert, format, and generate as much as you want for free without signups.
-            </p>
-          </div>
-        </div>
-      </section>
+
 
       {/* Recently Used Section */}
       {recentTools.length > 0 && (
@@ -175,6 +146,37 @@ export default function Home() {
           <ToolGrid tools={filteredTools} />
         </div>
       </main>
+
+      {/* Trust & Architecture Banner */}
+      <section className="max-w-6xl w-full mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-3 gap-6 border-t border-(--color-border) mt-8">
+        <div className="flex items-start gap-3 p-4">
+          <CircleCheck className="w-5 h-5 text-(--color-success) shrink-0 mt-0.5" />
+          <div>
+            <h4 className="text-sm font-semibold">100% Privacy by Default</h4>
+            <p className="text-xs text-(--color-text-secondary) mt-1">
+              Your files and text are processed locally inside your browser sandboxed environment.
+            </p>
+          </div>
+        </div>
+        <div className="flex items-start gap-3 p-4">
+          <CircleCheck className="w-5 h-5 text-(--color-success) shrink-0 mt-0.5" />
+          <div>
+            <h4 className="text-sm font-semibold">Zero Server Uploads</h4>
+            <p className="text-xs text-(--color-text-secondary) mt-1">
+              No server storage, no database. Zero threat of data leakage or exposure.
+            </p>
+          </div>
+        </div>
+        <div className="flex items-start gap-3 p-4">
+          <CircleCheck className="w-5 h-5 text-(--color-success) shrink-0 mt-0.5" />
+          <div>
+            <h4 className="text-sm font-semibold">No Paywall, No Limits</h4>
+            <p className="text-xs text-(--color-text-secondary) mt-1">
+              Convert, format, and generate as much as you want for free without signups.
+            </p>
+          </div>
+        </div>
+      </section>
 
       <Footer />
     </div>
