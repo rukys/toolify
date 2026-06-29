@@ -151,9 +151,9 @@ export default function PasswordClient() {
       <div className="space-y-6">
         {/* Main Password Output Panel */}
         <div className="space-y-4">
-          <div className="relative flex items-center justify-between p-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface-alt)]">
-            <span className="font-mono text-sm sm:text-base md:text-lg font-bold select-all break-all pr-12 text-[var(--color-primary)]">
-              {password || <span className="text-[var(--color-text-muted)] italic font-normal text-sm">Select options below...</span>}
+          <div className="relative flex items-center justify-between p-4 rounded-xl border border-(--color-border) bg-(--color-surface-alt)">
+            <span className="font-mono text-sm sm:text-base md:text-lg font-bold select-all break-all pr-12 text-(--color-primary)">
+              {password || <span className="text-(--color-text-muted) italic font-normal text-sm">Select options below...</span>}
             </span>
             <div className="absolute right-3 flex items-center gap-1">
               <Button
@@ -161,20 +161,20 @@ export default function PasswordClient() {
                 size="icon"
                 onClick={handleGenerate}
                 disabled={!uppercase && !lowercase && !numbers && !symbols}
-                className="w-8 h-8 cursor-pointer hover:bg-[var(--color-surface)]"
+                className="w-8 h-8 cursor-pointer hover:bg-(--color-surface)"
                 title="Regenerate"
               >
-                <RefreshCw className="w-4 h-4 text-[var(--color-text-secondary)]" />
+                <RefreshCw className="w-4 h-4 text-(--color-text-secondary)" />
               </Button>
               <Button
                 variant="ghost"
                 size="icon"
                 onClick={handleCopySingle}
                 disabled={!password}
-                className="w-8 h-8 cursor-pointer hover:bg-[var(--color-surface)]"
+                className="w-8 h-8 cursor-pointer hover:bg-(--color-surface)"
                 title="Copy"
               >
-                {copied ? <Check className="w-4 h-4 text-[var(--color-success)]" /> : <Copy className="w-4 h-4 text-[var(--color-text-secondary)]" />}
+                {copied ? <Check className="w-4 h-4 text-(--color-success)" /> : <Copy className="w-4 h-4 text-(--color-text-secondary)" />}
               </Button>
             </div>
           </div>
@@ -183,7 +183,7 @@ export default function PasswordClient() {
           {password && (
             <div className="space-y-1.5 px-1">
               <div className="flex justify-between items-center text-xs">
-                <span className="text-[var(--color-text-secondary)] font-medium">Strength:</span>
+                <span className="text-(--color-text-secondary) font-medium">Strength:</span>
                 <span className={`font-semibold ${strengthDetails.text}`}>{strengthDetails.label}</span>
               </div>
               <div className="w-full h-2 rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden">
@@ -194,12 +194,12 @@ export default function PasswordClient() {
         </div>
 
         {/* Options Box */}
-        <div className="space-y-4 p-4 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface-alt)]">
-          <h3 className="text-sm font-semibold border-b border-[var(--color-border)] pb-1">Password Options</h3>
+        <div className="space-y-4 p-4 rounded-2xl border border-(--color-border) bg-(--color-surface-alt)">
+          <h3 className="text-sm font-semibold border-b border-(--color-border) pb-1">Password Options</h3>
 
           {/* Length Slider */}
           <div className="space-y-1">
-            <div className="flex justify-between text-xs text-[var(--color-text-secondary)]">
+            <div className="flex justify-between text-xs text-(--color-text-secondary)">
               <Label htmlFor="pass-length">Length</Label>
               <span className="font-mono font-semibold">{length} characters</span>
             </div>
@@ -211,7 +211,7 @@ export default function PasswordClient() {
               step="1"
               value={length}
               onChange={(e) => setLength(Number(e.target.value))}
-              className="w-full accent-[var(--color-primary)] cursor-pointer"
+              className="w-full accent-(--color-primary) cursor-pointer"
             />
           </div>
 
@@ -253,13 +253,13 @@ export default function PasswordClient() {
               <span>Symbols (!@#$...)</span>
             </label>
 
-            <label className="flex items-center gap-2.5 text-xs sm:text-sm cursor-pointer select-none sm:col-span-2 pt-1 border-t border-[var(--color-border)]/50 mt-1">
+            <label className="flex items-center gap-2.5 text-xs sm:text-sm cursor-pointer select-none sm:col-span-2 pt-1 border-t border-(--color-border)/50 mt-1">
               <Checkbox
                 checked={excludeAmbiguous}
                 onCheckedChange={(checked) => setExcludeAmbiguous(!!checked)}
                 className="cursor-pointer"
               />
-              <span className="text-xs text-[var(--color-text-secondary)]">Exclude ambiguous characters (like I, l, 1, O, 0)</span>
+              <span className="text-xs text-(--color-text-secondary)">Exclude ambiguous characters (like I, l, 1, O, 0)</span>
             </label>
           </div>
         </div>
@@ -289,7 +289,7 @@ export default function PasswordClient() {
                 variant="ghost"
                 size="sm"
                 onClick={() => setBulkPasswords([])}
-                className="text-xs text-[var(--color-text-muted)] hover:text-[var(--color-danger)] cursor-pointer"
+                className="text-xs text-(--color-text-muted) hover:text-(--color-danger) cursor-pointer"
               >
                 Clear Bulk List
               </Button>
@@ -298,13 +298,13 @@ export default function PasswordClient() {
 
           {/* Bulk Password List */}
           {bulkPasswords.length > 0 && (
-            <div className="border border-[var(--color-border)] rounded-xl overflow-hidden divide-y divide-[var(--color-border)]">
+            <div className="border border-(--color-border) rounded-xl overflow-hidden divide-y divide-(--color-border)">
               {bulkPasswords.map((pass, idx) => (
                 <div
                   key={idx}
-                  className="flex items-center justify-between p-3 bg-[var(--color-surface-alt)]/30 hover:bg-[var(--color-surface-alt)]/65 transition-colors text-xs font-mono"
+                  className="flex items-center justify-between p-3 bg-(--color-surface-alt)/30 hover:bg-(--color-surface-alt)/65 transition-colors text-xs font-mono"
                 >
-                  <span className="select-all break-all text-[var(--color-text-primary)] font-semibold pr-4">
+                  <span className="select-all break-all text-(--color-text-primary) font-semibold pr-4">
                     {pass}
                   </span>
                   <Button
@@ -314,7 +314,7 @@ export default function PasswordClient() {
                     onClick={() => handleCopyBulk(idx, pass)}
                   >
                     {bulkCopiedIdx === idx ? (
-                      <span className="text-[var(--color-success)] flex items-center font-sans text-[10px]">
+                      <span className="text-(--color-success) flex items-center font-sans text-[10px]">
                         <Check className="w-3.5 h-3.5 mr-1" /> Copied
                       </span>
                     ) : (

@@ -132,7 +132,7 @@ export default function Base64Client() {
           }}
           className="w-full"
         >
-          <TabsList className="grid w-full grid-cols-3 bg-[var(--color-surface-alt)]">
+          <TabsList className="grid w-full grid-cols-3 bg-(--color-surface-alt)">
             <TabsTrigger value="encode" className="cursor-pointer">Encode Text</TabsTrigger>
             <TabsTrigger value="decode" className="cursor-pointer">Decode Text</TabsTrigger>
             <TabsTrigger value="file" className="cursor-pointer">File to Base64</TabsTrigger>
@@ -150,7 +150,7 @@ export default function Base64Client() {
                 placeholder="Type or paste the plain text here..."
                 value={textInput}
                 onChange={(e) => setTextInput(e.target.value)}
-                className="w-full p-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface-alt)] text-sm focus:border-[var(--color-primary)] focus:outline-none placeholder:text-[var(--color-text-muted)]"
+                className="w-full p-4 rounded-xl border border-(--color-border) bg-(--color-surface-alt) text-sm focus:border-(--color-primary) focus:outline-none placeholder:text-(--color-text-muted)"
               />
             </div>
 
@@ -180,7 +180,7 @@ export default function Base64Client() {
                 placeholder="Paste the Base64 encoded string here..."
                 value={textInput}
                 onChange={(e) => setTextInput(e.target.value)}
-                className="w-full p-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface-alt)] font-mono text-sm focus:border-[var(--color-primary)] focus:outline-none placeholder:text-[var(--color-text-muted)]"
+                className="w-full p-4 rounded-xl border border-(--color-border) bg-(--color-surface-alt) font-mono text-sm focus:border-(--color-primary) focus:outline-none placeholder:text-(--color-text-muted)"
               />
             </div>
 
@@ -214,7 +214,7 @@ export default function Base64Client() {
             </div>
 
             {isProcessingFile && (
-              <p className="text-xs text-[var(--color-text-muted)] animate-pulse">Encoding file...</p>
+              <p className="text-xs text-(--color-text-muted) animate-pulse">Encoding file...</p>
             )}
 
             {fileError && (
@@ -241,7 +241,7 @@ export default function Base64Client() {
         {/* Clear Button */}
         {(textInput || files.length > 0) && (
           <div className="flex justify-end pt-2">
-            <Button variant="ghost" onClick={handleClear} className="text-[var(--color-text-secondary)] hover:text-[var(--color-danger)] cursor-pointer text-xs">
+            <Button variant="ghost" onClick={handleClear} className="text-(--color-text-secondary) hover:text-(--color-danger) cursor-pointer text-xs">
               Reset / Clear Inputs
             </Button>
           </div>

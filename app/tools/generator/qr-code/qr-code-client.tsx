@@ -129,7 +129,7 @@ export default function QRCodeClient() {
           onValueChange={(val) => setActiveTab(val as QrType)}
           className="w-full"
         >
-          <TabsList className="grid w-full grid-cols-4 bg-[var(--color-surface-alt)]">
+          <TabsList className="grid w-full grid-cols-4 bg-(--color-surface-alt)">
             <TabsTrigger value="url" className="cursor-pointer text-xs sm:text-sm">URL</TabsTrigger>
             <TabsTrigger value="text" className="cursor-pointer text-xs sm:text-sm">Text</TabsTrigger>
             <TabsTrigger value="email" className="cursor-pointer text-xs sm:text-sm">Email</TabsTrigger>
@@ -164,7 +164,7 @@ export default function QRCodeClient() {
                 value={text}
                 onChange={(e) => setText(e.target.value)}
                 placeholder="Type the message or text you want to encode..."
-                className="w-full p-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface-alt)] text-sm focus:border-[var(--color-primary)] focus:outline-none placeholder:text-[var(--color-text-muted)]"
+                className="w-full p-4 rounded-xl border border-(--color-border) bg-(--color-surface-alt) text-sm focus:border-(--color-primary) focus:outline-none placeholder:text-(--color-text-muted)"
               />
             </div>
           </TabsContent>
@@ -208,7 +208,7 @@ export default function QRCodeClient() {
                   value={emailBody}
                   onChange={(e) => setEmailBody(e.target.value)}
                   placeholder="e.g. Write your email contents here..."
-                  className="w-full p-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface-alt)] text-sm focus:border-[var(--color-primary)] focus:outline-none placeholder:text-[var(--color-text-muted)]"
+                  className="w-full p-4 rounded-xl border border-(--color-border) bg-(--color-surface-alt) text-sm focus:border-(--color-primary) focus:outline-none placeholder:text-(--color-text-muted)"
                 />
               </div>
             </div>
@@ -232,12 +232,12 @@ export default function QRCodeClient() {
         </Tabs>
 
         {/* Customization Options Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 p-4 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface-alt)]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 p-4 rounded-2xl border border-(--color-border) bg-(--color-surface-alt)">
           <div className="space-y-4">
-            <h3 className="text-sm font-semibold border-b border-[var(--color-border)] pb-1">Appearance</h3>
+            <h3 className="text-sm font-semibold border-b border-(--color-border) pb-1">Appearance</h3>
             
             <div className="space-y-1">
-              <div className="flex justify-between text-xs text-[var(--color-text-secondary)]">
+              <div className="flex justify-between text-xs text-(--color-text-secondary)">
                 <Label htmlFor="qr-size">Size</Label>
                 <span className="font-mono">{size}x{size} px</span>
               </div>
@@ -249,19 +249,19 @@ export default function QRCodeClient() {
                 step="64"
                 value={size}
                 onChange={(e) => setSize(Number(e.target.value))}
-                className="w-full accent-[var(--color-primary)] cursor-pointer"
+                className="w-full accent-(--color-primary) cursor-pointer"
               />
             </div>
 
             <div className="space-y-1">
-              <Label htmlFor="qr-correction" className="text-xs text-[var(--color-text-secondary)]">
+              <Label htmlFor="qr-correction" className="text-xs text-(--color-text-secondary)">
                 Error Correction Level
               </Label>
               <select
                 id="qr-correction"
                 value={errorCorrection}
                 onChange={(e) => setErrorCorrection(e.target.value as 'L' | 'M' | 'Q' | 'H')}
-                className="block w-full px-3 py-2 text-sm rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] focus:border-[var(--color-primary)] focus:outline-none cursor-pointer"
+                className="block w-full px-3 py-2 text-sm rounded-lg border border-(--color-border) bg-(--color-surface) focus:border-(--color-primary) focus:outline-none cursor-pointer"
               >
                 <option value="L">L — Low (7% redundancy)</option>
                 <option value="M">M — Medium (15% redundancy)</option>
@@ -272,11 +272,11 @@ export default function QRCodeClient() {
           </div>
 
           <div className="space-y-4">
-            <h3 className="text-sm font-semibold border-b border-[var(--color-border)] pb-1">Colors</h3>
+            <h3 className="text-sm font-semibold border-b border-(--color-border) pb-1">Colors</h3>
             
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-1">
-                <Label htmlFor="qr-fg-color" className="text-xs text-[var(--color-text-secondary)]">
+                <Label htmlFor="qr-fg-color" className="text-xs text-(--color-text-secondary)">
                   Foreground Color
                 </Label>
                 <div className="flex items-center gap-2">
@@ -285,7 +285,7 @@ export default function QRCodeClient() {
                     type="color"
                     value={fgColor}
                     onChange={(e) => setFgColor(e.target.value)}
-                    className="w-8 h-8 rounded border border-[var(--color-border)] cursor-pointer bg-transparent"
+                    className="w-8 h-8 rounded border border-(--color-border) cursor-pointer bg-transparent"
                   />
                   <Input
                     type="text"
@@ -297,7 +297,7 @@ export default function QRCodeClient() {
               </div>
 
               <div className="space-y-1">
-                <Label htmlFor="qr-bg-color" className="text-xs text-[var(--color-text-secondary)]">
+                <Label htmlFor="qr-bg-color" className="text-xs text-(--color-text-secondary)">
                   Background Color
                 </Label>
                 <div className="flex items-center gap-2">
@@ -306,7 +306,7 @@ export default function QRCodeClient() {
                     type="color"
                     value={bgColor}
                     onChange={(e) => setBgColor(e.target.value)}
-                    className="w-8 h-8 rounded border border-[var(--color-border)] cursor-pointer bg-transparent"
+                    className="w-8 h-8 rounded border border-(--color-border) cursor-pointer bg-transparent"
                   />
                   <Input
                     type="text"
@@ -329,8 +329,8 @@ export default function QRCodeClient() {
 
         {/* Live Preview & Actions Panel */}
         {qrUrl && (
-          <div className="flex flex-col items-center justify-center p-6 border border-[var(--color-border)] rounded-2xl bg-[var(--color-surface)] space-y-6">
-            <div className="p-4 rounded-xl border border-[var(--color-border)] bg-white shadow-inner flex items-center justify-center">
+          <div className="flex flex-col items-center justify-center p-6 border border-(--color-border) rounded-2xl bg-(--color-surface) space-y-6">
+            <div className="p-4 rounded-xl border border-(--color-border) bg-white shadow-inner flex items-center justify-center">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={qrUrl} alt="QR Code Preview" className="max-w-[200px] h-auto object-contain" />
             </div>

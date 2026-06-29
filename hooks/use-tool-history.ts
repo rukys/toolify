@@ -11,15 +11,20 @@ export function useToolHistory() {
 
   // Load from localStorage on mount
   useEffect(() => {
-    try {
-      const stored = localStorage.getItem(HISTORY_KEY)
-      if (stored) {
-        setRecentIds(JSON.parse(stored))
+    const frameId = requestAnimationFrame(() => {
+      try {
+        const stored = localStorage.getItem(HISTORY_KEY)
+        if (stored) {
+          setRecentIds(JSON.parse(stored))
+        }
+      } catch (e) {
+        console.error('Failed to parse tool history from localStorage', e)
       }
-    } catch (e) {
-      console.error('Failed to parse tool history from localStorage', e)
+      setIsLoaded(true)
+    })
+    return () => {
+      cancelAnimationFrame(frameId)
     }
-    setIsLoaded(true)
   }, [])
 
   // Save to localStorage when recentIds changes, only after initial load

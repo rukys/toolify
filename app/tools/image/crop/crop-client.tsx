@@ -177,13 +177,13 @@ export default function CropClient() {
           <Label className="text-sm font-semibold">Upload Image</Label>
 
           {file && imgSrc ? (
-            <div className="flex items-center gap-3 p-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface-alt)]">
-              <FileImage className="w-8 h-8 text-[var(--color-primary)] shrink-0" />
+            <div className="flex items-center gap-3 p-4 rounded-xl border border-(--color-border) bg-(--color-surface-alt)">
+              <FileImage className="w-8 h-8 text-(--color-primary) shrink-0" />
               <div className="flex-1 min-w-0">
-                <p className="text-sm font-semibold truncate text-[var(--color-text-primary)]">
+                <p className="text-sm font-semibold truncate text-(--color-text-primary)">
                   {file.name}
                 </p>
-                <p className="text-xs text-[var(--color-text-muted)] mt-0.5">
+                <p className="text-xs text-(--color-text-muted) mt-0.5">
                   {(file.size / 1024 / 1024).toFixed(2)} MB
                   {origDimensions && ` • Original: ${origDimensions.width} × ${origDimensions.height} px`}
                 </p>
@@ -192,7 +192,7 @@ export default function CropClient() {
                 variant="ghost"
                 size="icon"
                 onClick={handleRemove}
-                className="text-[var(--color-text-secondary)] hover:text-[var(--color-danger)] hover:bg-[var(--color-surface)] cursor-pointer h-9 w-9"
+                className="text-(--color-text-secondary) hover:text-(--color-danger) hover:bg-(--color-surface) cursor-pointer h-9 w-9"
               >
                 <Trash2 className="w-4 h-4" />
               </Button>
@@ -213,10 +213,10 @@ export default function CropClient() {
 
         {/* Configurations and Editor */}
         {file && imgSrc && (
-          <div className="space-y-5 border-t border-[var(--color-border)] pt-5 animate-fade-in">
+          <div className="space-y-5 border-t border-(--color-border) pt-5 animate-fade-in">
             {/* Aspect ratios presets */}
             <div className="space-y-2">
-              <Label className="text-xs font-bold text-[var(--color-text-secondary)] uppercase tracking-wider">
+              <Label className="text-xs font-bold text-(--color-text-secondary) uppercase tracking-wider">
                 Select Aspect Ratio
               </Label>
               <div className="flex flex-wrap gap-2">
@@ -242,10 +242,10 @@ export default function CropClient() {
 
             {/* Draggable Crop Area */}
             <div className="space-y-2">
-              <Label className="text-xs font-bold text-[var(--color-text-secondary)] uppercase tracking-wider">
+              <Label className="text-xs font-bold text-(--color-text-secondary) uppercase tracking-wider">
                 Drag Crop Box
               </Label>
-              <div className="flex justify-center p-6 bg-[var(--color-surface-alt)] border border-[var(--color-border)] rounded-xl max-h-[480px] overflow-auto select-none">
+              <div className="flex justify-center p-6 bg-(--color-surface-alt) border border-(--color-border) rounded-xl max-h-[480px] overflow-auto select-none">
                 <ReactCrop
                   crop={crop}
                   onChange={(c) => setCrop(c)}
@@ -266,28 +266,28 @@ export default function CropClient() {
 
             {/* Selection coordinates preview */}
             {completedCrop && (
-              <div className="text-xs font-mono text-[var(--color-text-secondary)] bg-[var(--color-surface-alt)] p-3 rounded-lg border border-[var(--color-border)] flex flex-wrap justify-between gap-4">
+              <div className="text-xs font-mono text-(--color-text-secondary) bg-(--color-surface-alt) p-3 rounded-lg border border-(--color-border) flex flex-wrap justify-between gap-4">
                 <span>
                   Crop X:{' '}
-                  <strong className="text-[var(--color-text-primary)]">
+                  <strong className="text-(--color-text-primary)">
                     {Math.round(completedCrop.x)} px
                   </strong>
                 </span>
                 <span>
                   Crop Y:{' '}
-                  <strong className="text-[var(--color-text-primary)]">
+                  <strong className="text-(--color-text-primary)">
                     {Math.round(completedCrop.y)} px
                   </strong>
                 </span>
                 <span>
                   Width:{' '}
-                  <strong className="text-[var(--color-primary)]">
+                  <strong className="text-(--color-primary)">
                     {Math.round(completedCrop.width)} px
                   </strong>
                 </span>
                 <span>
                   Height:{' '}
-                  <strong className="text-[var(--color-primary)]">
+                  <strong className="text-(--color-primary)">
                     {Math.round(completedCrop.height)} px
                   </strong>
                 </span>
@@ -309,7 +309,7 @@ export default function CropClient() {
         {/* Output Section */}
         {output && (
           <div className="space-y-2 pt-2 animate-fade-in">
-            <Label className="text-xs font-bold text-[var(--color-text-secondary)] uppercase tracking-wider">
+            <Label className="text-xs font-bold text-(--color-text-secondary) uppercase tracking-wider">
               Cropped Output
             </Label>
             <OutputArea

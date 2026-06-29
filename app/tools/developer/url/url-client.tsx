@@ -56,7 +56,7 @@ export default function URLClient() {
           }}
           className="w-full"
         >
-          <TabsList className="grid w-full grid-cols-2 bg-[var(--color-surface-alt)]">
+          <TabsList className="grid w-full grid-cols-2 bg-(--color-surface-alt)">
             <TabsTrigger value="encode" className="cursor-pointer">URL Encode</TabsTrigger>
             <TabsTrigger value="decode" className="cursor-pointer">URL Decode</TabsTrigger>
           </TabsList>
@@ -73,7 +73,7 @@ export default function URLClient() {
                 placeholder="Type or paste the plain text here... e.g., name=John Doe&city=New York"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                className="w-full p-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface-alt)] text-sm focus:border-[var(--color-primary)] focus:outline-none placeholder:text-[var(--color-text-muted)]"
+                className="w-full p-4 rounded-xl border border-(--color-border) bg-(--color-surface-alt) text-sm focus:border-(--color-primary) focus:outline-none placeholder:text-(--color-text-muted)"
               />
             </div>
           </TabsContent>
@@ -90,7 +90,7 @@ export default function URLClient() {
                 placeholder="Paste your percent-encoded URL query here... e.g., name=John%20Doe&city=New%20York"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                className="w-full p-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface-alt)] font-mono text-sm focus:border-[var(--color-primary)] focus:outline-none placeholder:text-[var(--color-text-muted)]"
+                className="w-full p-4 rounded-xl border border-(--color-border) bg-(--color-surface-alt) font-mono text-sm focus:border-(--color-primary) focus:outline-none placeholder:text-(--color-text-muted)"
               />
             </div>
           </TabsContent>
@@ -121,7 +121,7 @@ export default function URLClient() {
             <Button
               variant="ghost"
               onClick={handleClear}
-              className="text-[var(--color-text-secondary)] hover:text-[var(--color-danger)] cursor-pointer text-xs"
+              className="text-(--color-text-secondary) hover:text-(--color-danger) cursor-pointer text-xs"
             >
               Reset / Clear Inputs
             </Button>

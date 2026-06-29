@@ -168,15 +168,15 @@ export default function ResizeClient() {
           <Label className="text-sm font-semibold">Upload Image</Label>
 
           {file ? (
-            <div className="flex items-center gap-3 p-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface-alt)]">
-              <FileImage className="w-8 h-8 text-[var(--color-primary)] shrink-0" />
+            <div className="flex items-center gap-3 p-4 rounded-xl border border-(--color-border) bg-(--color-surface-alt)">
+              <FileImage className="w-8 h-8 text-(--color-primary) shrink-0" />
               <div className="flex-1 min-w-0">
-                <p className="text-sm font-semibold truncate text-[var(--color-text-primary)]">
+                <p className="text-sm font-semibold truncate text-(--color-text-primary)">
                   {file.name}
                 </p>
-                <p className="text-xs text-[var(--color-text-muted)] mt-0.5">
+                <p className="text-xs text-(--color-text-muted) mt-0.5">
                   {(file.size / 1024 / 1024).toFixed(2)} MB •{' '}
-                  <strong className="text-[var(--color-primary)]">
+                  <strong className="text-(--color-primary)">
                     {origDimensions ? `${origDimensions.width} × ${origDimensions.height} px` : 'Loading size...'}
                   </strong>
                 </p>
@@ -185,7 +185,7 @@ export default function ResizeClient() {
                 variant="ghost"
                 size="icon"
                 onClick={handleRemove}
-                className="text-[var(--color-text-secondary)] hover:text-[var(--color-danger)] hover:bg-[var(--color-surface)] cursor-pointer h-9 w-9"
+                className="text-(--color-text-secondary) hover:text-(--color-danger) hover:bg-(--color-surface) cursor-pointer h-9 w-9"
               >
                 <Trash2 className="w-4 h-4" />
               </Button>
@@ -206,8 +206,8 @@ export default function ResizeClient() {
 
         {/* Configurations */}
         {file && origDimensions && (
-          <div className="space-y-5 border-t border-[var(--color-border)] pt-5 animate-fade-in">
-            <Label className="text-xs font-bold text-[var(--color-text-secondary)] uppercase tracking-wider">
+          <div className="space-y-5 border-t border-(--color-border) pt-5 animate-fade-in">
+            <Label className="text-xs font-bold text-(--color-text-secondary) uppercase tracking-wider">
               Resize Configurations
             </Label>
 
@@ -218,8 +218,8 @@ export default function ResizeClient() {
                 onClick={() => handleModeChange('dimensions')}
                 className={`flex flex-col items-center justify-center p-3 rounded-xl border text-center transition-all cursor-pointer ${
                   mode === 'dimensions'
-                    ? 'border-[var(--color-primary)] bg-[var(--color-primary-light)] text-[var(--color-primary)] shadow-sm'
-                    : 'border-[var(--color-border)] hover:border-[var(--color-text-muted)] bg-[var(--color-surface)]'
+                    ? 'border-(--color-primary) bg-(--color-primary-light) text-(--color-primary) shadow-sm'
+                    : 'border-(--color-border) hover:border-(--color-text-muted) bg-(--color-surface)'
                 }`}
               >
                 <Maximize2 className="w-4 h-4 mb-1.5" />
@@ -231,8 +231,8 @@ export default function ResizeClient() {
                 onClick={() => handleModeChange('percentage')}
                 className={`flex flex-col items-center justify-center p-3 rounded-xl border text-center transition-all cursor-pointer ${
                   mode === 'percentage'
-                    ? 'border-[var(--color-primary)] bg-[var(--color-primary-light)] text-[var(--color-primary)] shadow-sm'
-                    : 'border-[var(--color-border)] hover:border-[var(--color-text-muted)] bg-[var(--color-surface)]'
+                    ? 'border-(--color-primary) bg-(--color-primary-light) text-(--color-primary) shadow-sm'
+                    : 'border-(--color-border) hover:border-(--color-text-muted) bg-(--color-surface)'
                 }`}
               >
                 <Percent className="w-4 h-4 mb-1.5" />
@@ -244,8 +244,8 @@ export default function ResizeClient() {
                 onClick={() => handleModeChange('presets')}
                 className={`flex flex-col items-center justify-center p-3 rounded-xl border text-center transition-all cursor-pointer ${
                   mode === 'presets'
-                    ? 'border-[var(--color-primary)] bg-[var(--color-primary-light)] text-[var(--color-primary)] shadow-sm'
-                    : 'border-[var(--color-border)] hover:border-[var(--color-text-muted)] bg-[var(--color-surface)]'
+                    ? 'border-(--color-primary) bg-(--color-primary-light) text-(--color-primary) shadow-sm'
+                    : 'border-(--color-border) hover:border-(--color-text-muted) bg-(--color-surface)'
                 }`}
               >
                 <Scale className="w-4 h-4 mb-1.5" />
@@ -254,7 +254,7 @@ export default function ResizeClient() {
             </div>
 
             {/* Inputs block depending on mode */}
-            <div className="p-4 bg-[var(--color-surface-alt)] border border-[var(--color-border)] rounded-xl space-y-4">
+            <div className="p-4 bg-(--color-surface-alt) border border-(--color-border) rounded-xl space-y-4">
               {mode === 'dimensions' && (
                 <div className="space-y-3">
                   <div className="flex flex-col sm:flex-row items-center gap-4">
@@ -265,10 +265,10 @@ export default function ResizeClient() {
                         value={width}
                         onChange={(e) => handleWidthChange(e.target.value)}
                         placeholder="Width"
-                        className="bg-[var(--color-surface)] font-mono"
+                        className="bg-(--color-surface) font-mono"
                       />
                     </div>
-                    <span className="text-[var(--color-text-muted)] font-bold hidden sm:inline">×</span>
+                    <span className="text-(--color-text-muted) font-bold hidden sm:inline">×</span>
                     <div className="w-full space-y-1.5">
                       <Label htmlFor="height-input" className="text-xs font-semibold">Height (px)</Label>
                       <Input
@@ -276,7 +276,7 @@ export default function ResizeClient() {
                         value={height}
                         onChange={(e) => handleHeightChange(e.target.value)}
                         placeholder="Height"
-                        className="bg-[var(--color-surface)] font-mono"
+                        className="bg-(--color-surface) font-mono"
                       />
                     </div>
                   </div>
@@ -299,7 +299,7 @@ export default function ResizeClient() {
                 <div className="space-y-4">
                   <div className="flex justify-between items-center text-xs">
                     <Label className="font-semibold">Resize Percentage</Label>
-                    <span className="font-mono text-[var(--color-primary)] font-bold">{percent}%</span>
+                    <span className="font-mono text-(--color-primary) font-bold">{percent}%</span>
                   </div>
                   <div className="grid grid-cols-4 gap-2">
                     {[25, 50, 75, 90].map((pct) => (
@@ -314,9 +314,9 @@ export default function ResizeClient() {
                       </Button>
                     ))}
                   </div>
-                  <div className="text-xs text-[var(--color-text-secondary)] font-mono flex items-center justify-between bg-[var(--color-surface)] p-2.5 rounded-lg border border-[var(--color-border)]">
+                  <div className="text-xs text-(--color-text-secondary) font-mono flex items-center justify-between bg-(--color-surface) p-2.5 rounded-lg border border-(--color-border)">
                     <span>Target Dimensions:</span>
-                    <span className="font-bold text-[var(--color-text-primary)]">
+                    <span className="font-bold text-(--color-text-primary)">
                       {width} × {height} px
                     </span>
                   </div>
@@ -332,10 +332,10 @@ export default function ResizeClient() {
                         key={preset.label}
                         type="button"
                         onClick={() => handlePresetSelect(preset.width, preset.height)}
-                        className="flex flex-col p-2.5 rounded-lg border border-[var(--color-border)] hover:border-[var(--color-primary)] bg-[var(--color-surface)] text-left cursor-pointer transition-colors text-xs"
+                        className="flex flex-col p-2.5 rounded-lg border border-(--color-border) hover:border-(--color-primary) bg-(--color-surface) text-left cursor-pointer transition-colors text-xs"
                       >
-                        <span className="font-bold text-[var(--color-text-primary)]">{preset.label}</span>
-                        <span className="text-[10px] text-[var(--color-text-muted)] font-mono mt-0.5">
+                        <span className="font-bold text-(--color-text-primary)">{preset.label}</span>
+                        <span className="text-[10px] text-(--color-text-muted) font-mono mt-0.5">
                           {preset.width} × {preset.height} px
                         </span>
                       </button>
@@ -345,10 +345,10 @@ export default function ResizeClient() {
               )}
 
               {/* Output format select */}
-              <div className="space-y-1.5 border-t border-[var(--color-border)] pt-4 max-w-[220px]">
+              <div className="space-y-1.5 border-t border-(--color-border) pt-4 max-w-[220px]">
                 <Label htmlFor="output-format-select" className="text-xs font-semibold">Output Format</Label>
                 <Select value={format} onValueChange={(val) => { if (val) setFormat(val) }}>
-                  <SelectTrigger id="output-format-select" className="bg-[var(--color-surface)]">
+                  <SelectTrigger id="output-format-select" className="bg-(--color-surface)">
                     <SelectValue placeholder="Format options" />
                   </SelectTrigger>
                   <SelectContent>
@@ -371,7 +371,7 @@ export default function ResizeClient() {
         {/* Output Section */}
         {output && (
           <div className="space-y-2 pt-2 animate-fade-in">
-            <Label className="text-xs font-bold text-[var(--color-text-secondary)] uppercase tracking-wider">
+            <Label className="text-xs font-bold text-(--color-text-secondary) uppercase tracking-wider">
               Resized Result
             </Label>
             <OutputArea

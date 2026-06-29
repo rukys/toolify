@@ -119,7 +119,7 @@ export default function ImageToPDFClient() {
                 variant="ghost"
                 size="sm"
                 onClick={handleClear}
-                className="text-xs text-[var(--color-text-secondary)] hover:text-[var(--color-danger)] cursor-pointer h-8 px-2"
+                className="text-xs text-(--color-text-secondary) hover:text-(--color-danger) cursor-pointer h-8 px-2"
               >
                 <Trash2 className="w-3.5 h-3.5 mr-1" /> Clear All
               </Button>
@@ -129,7 +129,7 @@ export default function ImageToPDFClient() {
           {items.length > 0 ? (
             <div className="space-y-4">
               {/* Sortable Grid List */}
-              <div className="p-3 border border-[var(--color-border)] rounded-xl bg-[var(--color-surface-alt)]">
+              <div className="p-3 border border-(--color-border) rounded-xl bg-(--color-surface-alt)">
                 <SortableFileList
                   items={items}
                   onItemsChange={setItems}
@@ -140,7 +140,7 @@ export default function ImageToPDFClient() {
 
               {/* Smaller Dropzone for appending files */}
               {items.length < 30 && (
-                <div className="border border-dashed rounded-xl p-4 bg-[var(--color-surface-alt)] hover:border-[var(--color-primary)] transition-colors">
+                <div className="border border-dashed rounded-xl p-4 bg-(--color-surface-alt) hover:border-(--color-primary) transition-colors">
                   <DropZone
                     accept={{ 'image/*': ['.jpg', '.jpeg', '.png', '.webp', '.gif'] }}
                     maxSizeMB={20}
@@ -167,17 +167,17 @@ export default function ImageToPDFClient() {
 
         {/* Configurations */}
         {items.length > 0 && (
-          <div className="space-y-4 border-t border-[var(--color-border)] pt-5 animate-fade-in">
-            <Label className="text-xs font-bold text-[var(--color-text-secondary)] uppercase tracking-wider">
+          <div className="space-y-4 border-t border-(--color-border) pt-5 animate-fade-in">
+            <Label className="text-xs font-bold text-(--color-text-secondary) uppercase tracking-wider">
               Layout Settings
             </Label>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4 bg-[var(--color-surface-alt)] border border-[var(--color-border)] rounded-xl">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4 bg-(--color-surface-alt) border border-(--color-border) rounded-xl">
               {/* Page Size */}
               <div className="space-y-1.5">
                 <Label htmlFor="page-size-select" className="text-xs font-semibold">Page Size</Label>
                 <Select value={pageSize} onValueChange={(val) => { if (val) setPageSize(val) }}>
-                  <SelectTrigger id="page-size-select" className="bg-[var(--color-surface)]">
+                  <SelectTrigger id="page-size-select" className="bg-(--color-surface)">
                     <SelectValue placeholder="Select size" />
                   </SelectTrigger>
                   <SelectContent>
@@ -196,7 +196,7 @@ export default function ImageToPDFClient() {
                   onValueChange={(val) => { if (val) setOrientation(val) }}
                   disabled={pageSize === 'auto'}
                 >
-                  <SelectTrigger id="orientation-select" className="bg-[var(--color-surface)]">
+                  <SelectTrigger id="orientation-select" className="bg-(--color-surface)">
                     <SelectValue placeholder="Orientation" />
                   </SelectTrigger>
                   <SelectContent>
@@ -210,7 +210,7 @@ export default function ImageToPDFClient() {
               <div className="space-y-1.5">
                 <Label htmlFor="margin-select" className="text-xs font-semibold">Margin</Label>
                 <Select value={margin} onValueChange={(val) => { if (val) setMargin(val) }}>
-                  <SelectTrigger id="margin-select" className="bg-[var(--color-surface)]">
+                  <SelectTrigger id="margin-select" className="bg-(--color-surface)">
                     <SelectValue placeholder="Margin" />
                   </SelectTrigger>
                   <SelectContent>
@@ -225,7 +225,7 @@ export default function ImageToPDFClient() {
               <div className="space-y-1.5">
                 <Label htmlFor="image-fit-select" className="text-xs font-semibold">Fit Image</Label>
                 <Select value={fit} onValueChange={(val) => { if (val) setFit(val) }}>
-                  <SelectTrigger id="image-fit-select" className="bg-[var(--color-surface)]">
+                  <SelectTrigger id="image-fit-select" className="bg-(--color-surface)">
                     <SelectValue placeholder="Fit options" />
                   </SelectTrigger>
                   <SelectContent>
@@ -251,7 +251,7 @@ export default function ImageToPDFClient() {
         {/* Output Section */}
         {output && (
           <div className="space-y-2 pt-2 animate-fade-in">
-            <Label className="text-xs font-bold text-[var(--color-text-secondary)] uppercase tracking-wider">
+            <Label className="text-xs font-bold text-(--color-text-secondary) uppercase tracking-wider">
               Output Document
             </Label>
             <OutputArea

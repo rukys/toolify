@@ -8,9 +8,9 @@ interface ToolGridProps {
 export function ToolGrid({ tools }: ToolGridProps) {
   if (tools.length === 0) {
     return (
-      <div className="text-center py-12 border border-dashed border-[var(--color-border)] rounded-xl bg-[var(--color-surface-alt)]">
-        <p className="text-[var(--color-text-secondary)] font-medium">No tools found</p>
-        <p className="text-xs text-[var(--color-text-muted)] mt-1">Try searching for other keywords</p>
+      <div className="text-center py-12 border border-dashed border-(--color-border) rounded-xl bg-(--color-surface-alt)">
+        <p className="text-(--color-text-secondary) font-medium">No tools found</p>
+        <p className="text-xs text-(--color-text-muted) mt-1">Try searching for other keywords</p>
       </div>
     )
   }

@@ -66,15 +66,15 @@ function SortableFileItemComponent({
       <div
         ref={setNodeRef}
         style={style}
-        className={`relative flex flex-col items-center justify-between p-3 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] shadow-xs transition-shadow group ${
-          isDragging ? 'shadow-lg border-[var(--color-primary)]' : 'hover:border-[var(--color-text-muted)]'
+        className={`relative flex flex-col items-center justify-between p-3 rounded-xl border border-(--color-border) bg-(--color-surface) shadow-xs transition-shadow group ${
+          isDragging ? 'shadow-lg border-(--color-primary)' : 'hover:border-(--color-text-muted)'
         }`}
       >
         {/* Remove Button */}
         <button
           type="button"
           onClick={() => onRemove(item.id)}
-          className="absolute -top-1.5 -right-1.5 p-1 rounded-full bg-[var(--color-danger)] text-white opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer shadow-sm hover:scale-105"
+          className="absolute -top-1.5 -right-1.5 p-1 rounded-full bg-(--color-danger) text-white opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer shadow-sm hover:scale-105"
         >
           <Trash2 className="w-3 h-3" />
         </button>
@@ -83,13 +83,13 @@ function SortableFileItemComponent({
         <div
           {...attributes}
           {...listeners}
-          className="absolute top-1.5 left-1.5 p-1 rounded-md bg-[var(--color-surface-alt)] border border-[var(--color-border)] opacity-0 group-hover:opacity-100 transition-opacity cursor-grab active:cursor-grabbing"
+          className="absolute top-1.5 left-1.5 p-1 rounded-md bg-(--color-surface-alt) border border-(--color-border) opacity-0 group-hover:opacity-100 transition-opacity cursor-grab active:cursor-grabbing"
         >
-          <GripVertical className="w-3 h-3 text-[var(--color-text-secondary)]" />
+          <GripVertical className="w-3 h-3 text-(--color-text-secondary)" />
         </div>
 
         {/* Thumbnail or Fallback */}
-        <div className="w-20 h-20 rounded-lg overflow-hidden border border-[var(--color-border)] bg-[var(--color-surface-alt)] flex items-center justify-center mb-2 mt-3 select-none">
+        <div className="w-20 h-20 rounded-lg overflow-hidden border border-(--color-border) bg-(--color-surface-alt) flex items-center justify-center mb-2 mt-3 select-none">
           {item.thumbnailUrl ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img
@@ -98,16 +98,16 @@ function SortableFileItemComponent({
               className="w-full h-full object-cover"
             />
           ) : (
-            <ImageIcon className="w-8 h-8 text-[var(--color-text-muted)]" />
+            <ImageIcon className="w-8 h-8 text-(--color-text-muted)" />
           )}
         </div>
 
         {/* Info */}
         <div className="w-full text-center space-y-0.5">
-          <p className="text-[11px] font-semibold text-[var(--color-text-primary)] truncate max-w-full px-1">
+          <p className="text-[11px] font-semibold text-(--color-text-primary) truncate max-w-full px-1">
             {item.file.name}
           </p>
-          <p className="text-[9px] text-[var(--color-text-muted)]">
+          <p className="text-[9px] text-(--color-text-muted)">
             {formatSize(item.file.size)}
           </p>
         </div>
@@ -120,35 +120,35 @@ function SortableFileItemComponent({
     <div
       ref={setNodeRef}
       style={style}
-      className={`flex items-center gap-3 p-3.5 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] shadow-xs transition-shadow ${
-        isDragging ? 'shadow-md border-[var(--color-primary)] bg-[var(--color-surface-alt)]' : ''
+      className={`flex items-center gap-3 p-3.5 rounded-xl border border-(--color-border) bg-(--color-surface) shadow-xs transition-shadow ${
+        isDragging ? 'shadow-md border-(--color-primary) bg-(--color-surface-alt)' : ''
       }`}
     >
       {/* Drag handle */}
       <div
         {...attributes}
         {...listeners}
-        className="p-1 rounded-md hover:bg-[var(--color-surface-alt)] cursor-grab active:cursor-grabbing"
+        className="p-1 rounded-md hover:bg-(--color-surface-alt) cursor-grab active:cursor-grabbing"
       >
-        <GripVertical className="w-4 h-4 text-[var(--color-text-secondary)]" />
+        <GripVertical className="w-4 h-4 text-(--color-text-secondary)" />
       </div>
 
       {/* File Icon */}
-      <div className="p-2 rounded-lg bg-[var(--color-primary-light)] text-[var(--color-primary)]">
+      <div className="p-2 rounded-lg bg-(--color-primary-light) text-(--color-primary)">
         <FileText className="w-4 h-4" />
       </div>
 
       {/* File Info */}
       <div className="flex-1 min-w-0">
-        <p className="text-sm font-semibold text-[var(--color-text-primary)] truncate">
+        <p className="text-sm font-semibold text-(--color-text-primary) truncate">
           {item.file.name}
         </p>
-        <div className="flex items-center gap-2 text-xs text-[var(--color-text-muted)]">
+        <div className="flex items-center gap-2 text-xs text-(--color-text-muted)">
           <span>{formatSize(item.file.size)}</span>
           {item.extraInfo && (
             <>
               <span>•</span>
-              <span className="text-[var(--color-primary)] font-medium">{item.extraInfo}</span>
+              <span className="text-(--color-primary) font-medium">{item.extraInfo}</span>
             </>
           )}
         </div>
@@ -160,7 +160,7 @@ function SortableFileItemComponent({
         variant="ghost"
         size="icon"
         onClick={() => onRemove(item.id)}
-        className="text-[var(--color-text-muted)] hover:text-[var(--color-danger)] hover:bg-[var(--color-surface-alt)] cursor-pointer h-9 w-9"
+        className="text-(--color-text-muted) hover:text-(--color-danger) hover:bg-(--color-surface-alt) cursor-pointer h-9 w-9"
       >
         <Trash2 className="w-4 h-4" />
       </Button>

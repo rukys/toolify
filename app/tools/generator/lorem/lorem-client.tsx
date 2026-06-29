@@ -52,17 +52,17 @@ export default function LoremClient() {
     <ToolLayout tool={tool}>
       <div className="space-y-6">
         {/* Options Row */}
-        <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 p-4 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface-alt)] items-end">
+        <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 p-4 rounded-2xl border border-(--color-border) bg-(--color-surface-alt) items-end">
           {/* Unit Selector */}
           <div className="sm:col-span-4 space-y-1">
-            <Label htmlFor="lorem-unit" className="text-xs text-[var(--color-text-secondary)] font-semibold">
+            <Label htmlFor="lorem-unit" className="text-xs text-(--color-text-secondary) font-semibold">
               Generate Unit
             </Label>
             <select
               id="lorem-unit"
               value={unit}
               onChange={(e) => setUnit(e.target.value as LoremUnit)}
-              className="block w-full px-3 py-2 text-sm rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] focus:border-[var(--color-primary)] focus:outline-none cursor-pointer font-medium"
+              className="block w-full px-3 py-2 text-sm rounded-lg border border-(--color-border) bg-(--color-surface) focus:border-(--color-primary) focus:outline-none cursor-pointer font-medium"
             >
               <option value="paragraphs">Paragraphs</option>
               <option value="sentences">Sentences</option>
@@ -72,7 +72,7 @@ export default function LoremClient() {
 
           {/* Count Input */}
           <div className="sm:col-span-3 space-y-1">
-            <Label htmlFor="lorem-count" className="text-xs text-[var(--color-text-secondary)] font-semibold">
+            <Label htmlFor="lorem-count" className="text-xs text-(--color-text-secondary) font-semibold">
               Count
             </Label>
             <input
@@ -82,7 +82,7 @@ export default function LoremClient() {
               max="200"
               value={count}
               onChange={(e) => setCount(Math.min(200, Math.max(1, Number(e.target.value) || 1)))}
-              className="block w-full px-3 py-1.5 text-sm rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] focus:border-[var(--color-primary)] focus:outline-none"
+              className="block w-full px-3 py-1.5 text-sm rounded-lg border border-(--color-border) bg-(--color-surface) focus:border-(--color-primary) focus:outline-none"
             />
           </div>
 
@@ -105,7 +105,7 @@ export default function LoremClient() {
 
         {/* Stats Row */}
         {output && (
-          <div className="flex gap-4 text-xs font-mono text-[var(--color-text-secondary)] px-1">
+          <div className="flex gap-4 text-xs font-mono text-(--color-text-secondary) px-1">
             <span><strong>Words:</strong> {wordCount}</span>
             <span>|</span>
             <span><strong>Characters:</strong> {charCount}</span>
@@ -122,7 +122,7 @@ export default function LoremClient() {
               <Button variant="outline" size="sm" onClick={handleCopy} className="cursor-pointer text-xs">
                 {copied ? (
                   <>
-                    <Check className="w-3.5 h-3.5 mr-1 text-[var(--color-success)]" /> Copied
+                    <Check className="w-3.5 h-3.5 mr-1 text-(--color-success)" /> Copied
                   </>
                 ) : (
                   <>
@@ -132,7 +132,7 @@ export default function LoremClient() {
               </Button>
             </div>
             
-            <div className="p-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] max-h-[360px] overflow-auto select-all leading-relaxed whitespace-pre-wrap text-sm text-[var(--color-text-primary)]">
+            <div className="p-4 rounded-xl border border-(--color-border) bg-(--color-surface) max-h-[360px] overflow-auto select-all leading-relaxed whitespace-pre-wrap text-sm text-(--color-text-primary)">
               {output}
             </div>
           </div>

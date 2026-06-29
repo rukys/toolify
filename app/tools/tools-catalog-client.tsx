@@ -36,29 +36,29 @@ export default function ToolsCatalogClient() {
   }, [searchQuery, selectedCategory])
 
   return (
-    <div className="flex flex-col min-h-screen bg-[var(--color-surface)] text-[var(--color-text-primary)]">
+    <div className="flex flex-col min-h-screen bg-(--color-surface) text-(--color-text-primary)">
       <Header />
 
       <main className="flex-1 max-w-6xl w-full mx-auto px-4 py-8 space-y-8">
         {/* Title */}
         <div className="space-y-2">
           <h1 className="text-3xl font-extrabold tracking-tight">Tools Catalog</h1>
-          <p className="text-sm text-[var(--color-text-secondary)]">
+          <p className="text-sm text-(--color-text-secondary)">
             Explore our collection of 100% browser-based utility tools.
           </p>
         </div>
 
         {/* Filter Toolbar */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 p-4 border border-[var(--color-border)] rounded-xl bg-[var(--color-surface-alt)] shadow-sm">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 p-4 border border-(--color-border) rounded-xl bg-(--color-surface-alt) shadow-sm">
           {/* Search bar */}
           <div className="relative flex-1 max-w-md">
-            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--color-text-muted)]" />
+            <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-(--color-text-muted)" />
             <input
               type="text"
               placeholder="Search tools..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 text-sm rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] focus:border-[var(--color-primary)] focus:outline-none placeholder:text-[var(--color-text-muted)]"
+              className="w-full pl-10 pr-4 py-2 text-sm rounded-lg border border-(--color-border) bg-(--color-surface) focus:border-(--color-primary) focus:outline-none placeholder:text-(--color-text-muted)"
             />
           </div>
 
@@ -70,8 +70,8 @@ export default function ToolsCatalogClient() {
                 onClick={() => setSelectedCategory(cat.value)}
                 className={`px-3 py-1.5 text-xs font-semibold rounded-lg transition-colors cursor-pointer whitespace-nowrap ${
                   selectedCategory === cat.value
-                    ? 'bg-[var(--color-primary)] text-white'
-                    : 'bg-[var(--color-surface)] border border-[var(--color-border)] text-[var(--color-text-secondary)] hover:bg-[var(--color-surface-alt)]'
+                    ? 'bg-(--color-primary) text-white'
+                    : 'bg-(--color-surface) border border-(--color-border) text-(--color-text-secondary) hover:bg-(--color-surface-alt)'
                 }`}
               >
                 {cat.label}
@@ -82,7 +82,7 @@ export default function ToolsCatalogClient() {
 
         {/* Results */}
         <div className="space-y-4">
-          <div className="flex justify-between items-center text-xs text-[var(--color-text-muted)]">
+          <div className="flex justify-between items-center text-xs text-(--color-text-muted)">
             <span>
               Showing {filteredTools.length} {filteredTools.length === 1 ? 'utility' : 'utilities'}
             </span>

@@ -27,40 +27,40 @@ export function ToolLayout({ tool, children, relatedTools }: ToolLayoutProps) {
   }, [tool.id, addToHistory])
 
   return (
-    <div className="flex flex-col min-h-screen bg-[var(--color-surface)] text-[var(--color-text-primary)]">
+    <div className="flex flex-col min-h-screen bg-(--color-surface) text-(--color-text-primary)">
       <Header />
 
       <main className="flex-1 max-w-6xl w-full mx-auto px-4 py-8">
         {/* Breadcrumbs */}
-        <div className="flex items-center gap-2 text-xs text-[var(--color-text-secondary)] mb-6 overflow-x-auto whitespace-nowrap">
-          <Link href="/" className="hover:text-[var(--color-primary)] transition-colors">
+        <div className="flex items-center gap-2 text-xs text-(--color-text-secondary) mb-6 overflow-x-auto whitespace-nowrap">
+          <Link href="/" className="hover:text-(--color-primary) transition-colors">
             Home
           </Link>
           <span>/</span>
-          <Link href="/tools" className="hover:text-[var(--color-primary)] transition-colors">
+          <Link href="/tools" className="hover:text-(--color-primary) transition-colors">
             Tools
           </Link>
           <span>/</span>
           <Link
             href={`/tools/${tool.category}`}
-            className="hover:text-[var(--color-primary)] transition-colors capitalize"
+            className="hover:text-(--color-primary) transition-colors capitalize"
           >
             {tool.category}
           </Link>
           <span>/</span>
-          <span className="text-[var(--color-text-muted)] font-medium">{tool.name}</span>
+          <span className="text-(--color-text-muted) font-medium">{tool.name}</span>
         </div>
 
         {/* Tool Header */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6 mb-8 border-b border-[var(--color-border)]">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6 mb-8 border-b border-(--color-border)">
           <div className="space-y-2 max-w-2xl">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-xl bg-[var(--color-primary-light)] text-[var(--color-primary)] flex items-center justify-center">
+              <div className="w-12 h-12 rounded-xl bg-(--color-primary-light) text-(--color-primary) flex items-center justify-center">
                 <LucideIcon name={tool.icon} className="w-6 h-6" />
               </div>
               <div>
                 <h1 className="text-2xl md:text-3xl font-bold tracking-tight">{tool.name}</h1>
-                <p className="text-sm text-[var(--color-text-secondary)] mt-1">{tool.description}</p>
+                <p className="text-sm text-(--color-text-secondary) mt-1">{tool.description}</p>
               </div>
             </div>
           </div>
@@ -80,7 +80,7 @@ export function ToolLayout({ tool, children, relatedTools }: ToolLayoutProps) {
 
         {/* Main Tool Area */}
         <div className="max-w-3xl mx-auto mb-16">
-          <div className="p-6 md:p-8 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] shadow-sm">
+          <div className="p-6 md:p-8 rounded-2xl border border-(--color-border) bg-(--color-surface) shadow-sm">
             {children}
           </div>
         </div>

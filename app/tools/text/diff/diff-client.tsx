@@ -94,9 +94,9 @@ export default function DiffClient() {
     <ToolLayout tool={tool}>
       <div className="space-y-6">
         {/* Action controls */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-[var(--color-surface-alt)] p-3 rounded-xl border border-[var(--color-border)]">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-(--color-surface-alt) p-3 rounded-xl border border-(--color-border)">
           <div className="flex flex-wrap items-center gap-1.5">
-            <span className="text-xs font-semibold text-[var(--color-text-secondary)] mr-1">Mode:</span>
+            <span className="text-xs font-semibold text-(--color-text-secondary) mr-1">Mode:</span>
             <Button
               variant={mode === 'words' ? 'default' : 'outline'}
               size="sm"
@@ -133,7 +133,7 @@ export default function DiffClient() {
               onClick={handleLoadSample}
               className="text-xs h-8 cursor-pointer gap-1"
             >
-              <Sparkles className="w-3.5 h-3.5 text-[var(--color-accent)]" />
+              <Sparkles className="w-3.5 h-3.5 text-(--color-accent)" />
               Load Sample
             </Button>
             <Button
@@ -151,7 +151,7 @@ export default function DiffClient() {
                 variant="ghost"
                 size="sm"
                 onClick={handleClear}
-                className="text-xs h-8 text-[var(--color-text-secondary)] hover:text-[var(--color-danger)] cursor-pointer gap-1"
+                className="text-xs h-8 text-(--color-text-secondary) hover:text-(--color-danger) cursor-pointer gap-1"
               >
                 <Trash2 className="w-3.5 h-3.5" />
                 Clear
@@ -163,7 +163,7 @@ export default function DiffClient() {
         {/* Inputs panel */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="space-y-1.5">
-            <Label htmlFor="original-text" className="text-xs font-bold text-[var(--color-text-secondary)] uppercase tracking-wider">
+            <Label htmlFor="original-text" className="text-xs font-bold text-(--color-text-secondary) uppercase tracking-wider">
               Original Text (Left / Old)
             </Label>
             <textarea
@@ -172,12 +172,12 @@ export default function DiffClient() {
               value={original}
               onChange={(e) => setOriginal(e.target.value)}
               placeholder="Paste the original version of your text here..."
-              className="w-full p-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] text-sm focus:border-[var(--color-primary)] focus:outline-none placeholder:text-[var(--color-text-muted)] resize-none font-mono leading-relaxed"
+              className="w-full p-4 rounded-xl border border-(--color-border) bg-(--color-surface) text-sm focus:border-(--color-primary) focus:outline-none placeholder:text-(--color-text-muted) resize-none font-mono leading-relaxed"
             />
           </div>
 
           <div className="space-y-1.5">
-            <Label htmlFor="modified-text" className="text-xs font-bold text-[var(--color-text-secondary)] uppercase tracking-wider">
+            <Label htmlFor="modified-text" className="text-xs font-bold text-(--color-text-secondary) uppercase tracking-wider">
               Modified Text (Right / New)
             </Label>
             <textarea
@@ -186,7 +186,7 @@ export default function DiffClient() {
               value={modified}
               onChange={(e) => setModified(e.target.value)}
               placeholder="Paste the modified or updated version of your text here..."
-              className="w-full p-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] text-sm focus:border-[var(--color-primary)] focus:outline-none placeholder:text-[var(--color-text-muted)] resize-none font-mono leading-relaxed"
+              className="w-full p-4 rounded-xl border border-(--color-border) bg-(--color-surface) text-sm focus:border-(--color-primary) focus:outline-none placeholder:text-(--color-text-muted) resize-none font-mono leading-relaxed"
             />
           </div>
         </div>
@@ -194,33 +194,33 @@ export default function DiffClient() {
         {/* Diff Result area */}
         <div className="space-y-2">
           <div className="flex items-center justify-between">
-            <Label className="text-xs font-bold text-[var(--color-text-secondary)] uppercase tracking-wider">
+            <Label className="text-xs font-bold text-(--color-text-secondary) uppercase tracking-wider">
               Comparison Output
             </Label>
 
             {(original || modified) && (
               <div className="flex gap-3 text-xs font-mono">
-                <span className="text-[var(--color-success)] font-semibold">
+                <span className="text-(--color-success) font-semibold">
                   +{stats.additions} {mode === 'lines' ? 'lines' : mode === 'words' ? 'words' : 'chars'}
                 </span>
-                <span className="text-[var(--color-danger)] font-semibold">
+                <span className="text-(--color-danger) font-semibold">
                   -{stats.deletions} {mode === 'lines' ? 'lines' : mode === 'words' ? 'words' : 'chars'}
                 </span>
               </div>
             )}
           </div>
 
-          <div className="w-full p-6 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface-alt)] overflow-x-auto min-h-[180px]">
+          <div className="w-full p-6 rounded-xl border border-(--color-border) bg-(--color-surface-alt) overflow-x-auto min-h-[180px]">
             {!original && !modified ? (
-              <div className="h-full flex flex-col items-center justify-center text-[var(--color-text-muted)] text-center py-8">
-                <ArrowRightLeft className="w-8 h-8 mb-2 opacity-40 text-[var(--color-primary)]" />
+              <div className="h-full flex flex-col items-center justify-center text-(--color-text-muted) text-center py-8">
+                <ArrowRightLeft className="w-8 h-8 mb-2 opacity-40 text-(--color-primary)" />
                 <p className="text-xs">No differences to show.</p>
                 <p className="text-[11px] mt-1">Enter text above or click &quot;Load Sample&quot; to see highlights.</p>
               </div>
             ) : (
               <div className="font-mono text-sm leading-relaxed whitespace-pre-wrap">
                 {mode === 'lines' ? (
-                  <div className="divide-y divide-[var(--color-border)] border border-[var(--color-border)] rounded-lg overflow-hidden">
+                  <div className="divide-y divide-(--color-border) border border-(--color-border) rounded-lg overflow-hidden">
                     {diffResults.map((change, index) => {
                       const lines = change.value.split('\n')
                       // Handle trailing empty line from splits
@@ -229,7 +229,7 @@ export default function DiffClient() {
                       }
 
                       return lines.map((line, lIdx) => {
-                        let rowClass = 'bg-[var(--color-surface)] text-[var(--color-text-secondary)]'
+                        let rowClass = 'bg-(--color-surface) text-(--color-text-secondary)'
                         let prefix = ' '
                         if (change.added) {
                           rowClass = 'bg-emerald-500/10 text-emerald-800 dark:text-emerald-300 font-semibold'
@@ -275,7 +275,7 @@ export default function DiffClient() {
                         )
                       }
                       return (
-                        <span key={index} className="text-[var(--color-text-primary)]">
+                        <span key={index} className="text-(--color-text-primary)">
                           {change.value}
                         </span>
                       )

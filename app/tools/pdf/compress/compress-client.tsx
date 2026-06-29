@@ -73,13 +73,13 @@ export default function CompressClient() {
           <Label className="text-sm font-semibold">Upload PDF File</Label>
 
           {file ? (
-            <div className="flex items-center gap-3 p-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface-alt)]">
-              <FileIcon className="w-8 h-8 text-[var(--color-primary)] shrink-0" />
+            <div className="flex items-center gap-3 p-4 rounded-xl border border-(--color-border) bg-(--color-surface-alt)">
+              <FileIcon className="w-8 h-8 text-(--color-primary) shrink-0" />
               <div className="flex-1 min-w-0">
-                <p className="text-sm font-semibold truncate text-[var(--color-text-primary)]">
+                <p className="text-sm font-semibold truncate text-(--color-text-primary)">
                   {file.name}
                 </p>
-                <p className="text-xs text-[var(--color-text-muted)] mt-0.5">
+                <p className="text-xs text-(--color-text-muted) mt-0.5">
                   {(file.size / 1024 / 1024).toFixed(2)} MB
                 </p>
               </div>
@@ -87,7 +87,7 @@ export default function CompressClient() {
                 variant="ghost"
                 size="icon"
                 onClick={handleRemove}
-                className="text-[var(--color-text-secondary)] hover:text-[var(--color-danger)] hover:bg-[var(--color-surface)] cursor-pointer h-9 w-9"
+                className="text-(--color-text-secondary) hover:text-(--color-danger) hover:bg-(--color-surface) cursor-pointer h-9 w-9"
               >
                 <Trash2 className="w-4 h-4" />
               </Button>
@@ -104,10 +104,10 @@ export default function CompressClient() {
 
         {/* Configurations */}
         {file && (
-          <div className="space-y-5 border-t border-[var(--color-border)] pt-5 animate-fade-in">
+          <div className="space-y-5 border-t border-(--color-border) pt-5 animate-fade-in">
             {/* Compression Level */}
             <div className="space-y-2">
-              <Label className="text-xs font-bold text-[var(--color-text-secondary)] uppercase tracking-wider">
+              <Label className="text-xs font-bold text-(--color-text-secondary) uppercase tracking-wider">
                 Compression Level
               </Label>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -116,8 +116,8 @@ export default function CompressClient() {
                   onClick={() => setLevel('light')}
                   className={`flex flex-col items-center justify-center p-4 rounded-xl border text-center transition-all cursor-pointer ${
                     level === 'light'
-                      ? 'border-[var(--color-primary)] bg-[var(--color-primary-light)] text-[var(--color-primary)] shadow-sm'
-                      : 'border-[var(--color-border)] hover:border-[var(--color-text-muted)] bg-[var(--color-surface)]'
+                      ? 'border-(--color-primary) bg-(--color-primary-light) text-(--color-primary) shadow-sm'
+                      : 'border-(--color-border) hover:border-(--color-text-muted) bg-(--color-surface)'
                   }`}
                 >
                   <span className="text-xs font-bold">Light Compression</span>
@@ -129,8 +129,8 @@ export default function CompressClient() {
                   onClick={() => setLevel('balanced')}
                   className={`flex flex-col items-center justify-center p-4 rounded-xl border text-center transition-all cursor-pointer ${
                     level === 'balanced'
-                      ? 'border-[var(--color-primary)] bg-[var(--color-primary-light)] text-[var(--color-primary)] shadow-sm'
-                      : 'border-[var(--color-border)] hover:border-[var(--color-text-muted)] bg-[var(--color-surface)]'
+                      ? 'border-(--color-primary) bg-(--color-primary-light) text-(--color-primary) shadow-sm'
+                      : 'border-(--color-border) hover:border-(--color-text-muted) bg-(--color-surface)'
                   }`}
                 >
                   <span className="text-xs font-bold">Balanced Compression</span>
@@ -142,8 +142,8 @@ export default function CompressClient() {
                   onClick={() => setLevel('strong')}
                   className={`flex flex-col items-center justify-center p-4 rounded-xl border text-center transition-all cursor-pointer ${
                     level === 'strong'
-                      ? 'border-[var(--color-primary)] bg-[var(--color-primary-light)] text-[var(--color-primary)] shadow-sm'
-                      : 'border-[var(--color-border)] hover:border-[var(--color-text-muted)] bg-[var(--color-surface)]'
+                      ? 'border-(--color-primary) bg-(--color-primary-light) text-(--color-primary) shadow-sm'
+                      : 'border-(--color-border) hover:border-(--color-text-muted) bg-(--color-surface)'
                   }`}
                 >
                   <span className="text-xs font-bold">Strong Compression</span>
@@ -176,7 +176,7 @@ export default function CompressClient() {
         {/* Output Section */}
         {output && (
           <div className="space-y-2 pt-2 animate-fade-in">
-            <Label className="text-xs font-bold text-[var(--color-text-secondary)] uppercase tracking-wider">
+            <Label className="text-xs font-bold text-(--color-text-secondary) uppercase tracking-wider">
               Compressed Document
             </Label>
             <div className="space-y-3">
@@ -187,13 +187,13 @@ export default function CompressClient() {
                 sizeInfo={output.sizeInfo}
               />
               {output.percentSaved > 0 ? (
-                <div className="flex items-center gap-1.5 text-xs text-[var(--color-success)] font-medium bg-emerald-50 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-900/50 px-3 py-2 rounded-lg w-fit">
+                <div className="flex items-center gap-1.5 text-xs text-(--color-success) font-medium bg-emerald-50 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-900/50 px-3 py-2 rounded-lg w-fit">
                   <Check className="w-4 h-4" />
                   Successfully reduced PDF file size by {output.percentSaved}%!
                 </div>
               ) : (
-                <div className="flex items-center gap-1.5 text-xs text-[var(--color-text-secondary)] font-medium bg-[var(--color-surface-alt)] border border-[var(--color-border)] px-3 py-2 rounded-lg w-fit">
-                  <Info className="w-4 h-4 text-[var(--color-primary)]" />
+                <div className="flex items-center gap-1.5 text-xs text-(--color-text-secondary) font-medium bg-(--color-surface-alt) border border-(--color-border) px-3 py-2 rounded-lg w-fit">
+                  <Info className="w-4 h-4 text-(--color-primary)" />
                   PDF structural optimizations applied. File size remains unchanged.
                 </div>
               )}

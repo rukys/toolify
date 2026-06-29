@@ -51,14 +51,14 @@ export function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-[var(--color-border)] bg-[var(--color-surface)]/80 backdrop-blur-md">
+    <header className="sticky top-0 z-50 w-full border-b border-(--color-border) bg-(--color-surface)/80 backdrop-blur-md">
       <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 font-bold text-xl tracking-tight hover:opacity-90">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-[var(--color-primary)] to-[var(--color-accent)] flex items-center justify-center text-white">
+          <div className="w-8 h-8 rounded-lg bg-linear-to-tr from-(--color-primary) to-(--color-accent) flex items-center justify-center text-white">
             <Cpu className="w-5 h-5" />
           </div>
-          <span className="bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-accent)] bg-clip-text text-transparent">
+          <span className="bg-linear-to-r from-(--color-primary) to-(--color-accent) bg-clip-text text-transparent">
             Toolify
           </span>
         </Link>
@@ -71,8 +71,8 @@ export function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium transition-colors hover:text-[var(--color-primary)] ${
-                  isActive ? 'text-[var(--color-primary)] font-semibold' : 'text-[var(--color-text-secondary)]'
+                className={`text-sm font-medium transition-colors hover:text-(--color-primary) ${
+                  isActive ? 'text-(--color-primary) font-semibold' : 'text-(--color-text-secondary)'
                 }`}
               >
                 {link.label}
@@ -87,13 +87,13 @@ export function Header() {
             variant="ghost"
             size="icon"
             onClick={toggleTheme}
-            className="w-9 h-9 rounded-lg hover:bg-[var(--color-surface-alt)] cursor-pointer"
+            className="w-9 h-9 rounded-lg hover:bg-(--color-surface-alt) cursor-pointer"
             aria-label="Toggle theme"
           >
             {theme === 'dark' ? (
-              <Sun className="w-5 h-5 text-[var(--color-accent)]" />
+              <Sun className="w-5 h-5 text-(--color-accent)" />
             ) : (
-              <Moon className="w-5 h-5 text-[var(--color-text-secondary)]" />
+              <Moon className="w-5 h-5 text-(--color-text-secondary)" />
             )}
           </Button>
         </div>
@@ -104,13 +104,13 @@ export function Header() {
             variant="ghost"
             size="icon"
             onClick={toggleTheme}
-            className="w-9 h-9 rounded-lg hover:bg-[var(--color-surface-alt)] cursor-pointer"
+            className="w-9 h-9 rounded-lg hover:bg-(--color-surface-alt) cursor-pointer"
             aria-label="Toggle theme"
           >
             {theme === 'dark' ? (
-              <Sun className="w-5 h-5 text-[var(--color-accent)]" />
+              <Sun className="w-5 h-5 text-(--color-accent)" />
             ) : (
-              <Moon className="w-5 h-5 text-[var(--color-text-secondary)]" />
+              <Moon className="w-5 h-5 text-(--color-text-secondary)" />
             )}
           </Button>
 
@@ -118,7 +118,7 @@ export function Header() {
             variant="ghost"
             size="icon"
             onClick={() => setIsOpen(!isOpen)}
-            className="w-9 h-9 rounded-lg hover:bg-[var(--color-surface-alt)] cursor-pointer"
+            className="w-9 h-9 rounded-lg hover:bg-(--color-surface-alt) cursor-pointer"
             aria-label="Toggle Menu"
           >
             {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -128,7 +128,7 @@ export function Header() {
 
       {/* Mobile Menu Panel */}
       {isOpen && (
-        <div className="md:hidden border-b border-[var(--color-border)] bg-[var(--color-surface)] py-4 px-4 animate-in slide-in-from-top duration-200">
+        <div className="md:hidden border-b border-(--color-border) bg-(--color-surface) py-4 px-4 animate-in slide-in-from-top duration-200">
           <nav className="flex flex-col gap-3">
             {NAV_LINKS.map((link) => {
               const isActive = pathname === link.href || pathname.startsWith(link.href + '/')
@@ -137,10 +137,10 @@ export function Header() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className={`text-sm font-medium py-2 px-3 rounded-md transition-colors hover:bg-[var(--color-surface-alt)] hover:text-[var(--color-primary)] ${
+                  className={`text-sm font-medium py-2 px-3 rounded-md transition-colors hover:bg-(--color-surface-alt) hover:text-(--color-primary) ${
                     isActive
-                      ? 'bg-[var(--color-primary-light)] text-[var(--color-primary)] font-semibold'
-                      : 'text-[var(--color-text-secondary)]'
+                      ? 'bg-(--color-primary-light) text-(--color-primary) font-semibold'
+                      : 'text-(--color-text-secondary)'
                   }`}
                 >
                   {link.label}

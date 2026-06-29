@@ -103,10 +103,10 @@ export default function HashClient() {
 
   const renderHashOutputRow = (label: string, value: string, key: string) => {
     return (
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between p-3 gap-2 border-b border-[var(--color-border)] last:border-b-0 hover:bg-[var(--color-surface-alt)]/30 transition-colors">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between p-3 gap-2 border-b border-(--color-border) last:border-b-0 hover:bg-(--color-surface-alt)/30 transition-colors">
         <div className="space-y-1 min-w-0">
-          <span className="text-[10px] uppercase font-bold tracking-wider text-[var(--color-text-secondary)]">{label}</span>
-          <p className="font-mono text-xs text-[var(--color-primary)] break-all">{value}</p>
+          <span className="text-[10px] uppercase font-bold tracking-wider text-(--color-text-secondary)">{label}</span>
+          <p className="font-mono text-xs text-(--color-primary) break-all">{value}</p>
         </div>
         <Button
           variant="outline"
@@ -114,7 +114,7 @@ export default function HashClient() {
           className="cursor-pointer text-[10px] h-7 w-20 shrink-0 self-end sm:self-center"
           onClick={() => handleCopyText(key, value)}
         >
-          {copiedMap[key] ? <Check className="w-3.5 h-3.5 text-[var(--color-success)] mr-1" /> : <Copy className="w-3.5 h-3.5 mr-1" />}
+          {copiedMap[key] ? <Check className="w-3.5 h-3.5 text-(--color-success) mr-1" /> : <Copy className="w-3.5 h-3.5 mr-1" />}
           {copiedMap[key] ? 'Copied' : 'Copy'}
         </Button>
       </div>
@@ -132,7 +132,7 @@ export default function HashClient() {
           }}
           className="w-full"
         >
-          <TabsList className="grid w-full grid-cols-2 bg-[var(--color-surface-alt)]">
+          <TabsList className="grid w-full grid-cols-2 bg-(--color-surface-alt)">
             <TabsTrigger value="text" className="cursor-pointer">Text Hash</TabsTrigger>
             <TabsTrigger value="file" className="cursor-pointer">File Hash</TabsTrigger>
           </TabsList>
@@ -149,14 +149,14 @@ export default function HashClient() {
                 placeholder="Type or paste text to generate checksum hashes..."
                 value={textInput}
                 onChange={(e) => setTextInput(e.target.value)}
-                className="w-full p-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface-alt)] text-sm focus:border-[var(--color-primary)] focus:outline-none placeholder:text-[var(--color-text-muted)]"
+                className="w-full p-4 rounded-xl border border-(--color-border) bg-(--color-surface-alt) text-sm focus:border-(--color-primary) focus:outline-none placeholder:text-(--color-text-muted)"
               />
             </div>
 
             {textHashes && (
               <div className="space-y-2 pt-2">
                 <Label className="text-sm font-semibold">Generated Hashes</Label>
-                <div className="border border-[var(--color-border)] rounded-xl overflow-hidden text-xs">
+                <div className="border border-(--color-border) rounded-xl overflow-hidden text-xs">
                   {renderHashOutputRow('MD5 Checksum', textHashes.md5, 'text-md5')}
                   {renderHashOutputRow('SHA-1 Checksum', textHashes.sha1, 'text-sha1')}
                   {renderHashOutputRow('SHA-256 Checksum', textHashes.sha256, 'text-sha256')}
@@ -182,7 +182,7 @@ export default function HashClient() {
             </div>
 
             {isProcessingFile && (
-              <p className="text-xs text-[var(--color-text-muted)] animate-pulse">Calculating hashes...</p>
+              <p className="text-xs text-(--color-text-muted) animate-pulse">Calculating hashes...</p>
             )}
 
             {fileError && (
@@ -195,7 +195,7 @@ export default function HashClient() {
             {fileHashes && (
               <div className="space-y-2 pt-2">
                 <Label className="text-sm font-semibold">File Hashes</Label>
-                <div className="border border-[var(--color-border)] rounded-xl overflow-hidden text-xs">
+                <div className="border border-(--color-border) rounded-xl overflow-hidden text-xs">
                   {renderHashOutputRow('MD5 Checksum', fileHashes.md5, 'file-md5')}
                   {renderHashOutputRow('SHA-1 Checksum', fileHashes.sha1, 'file-sha1')}
                   {renderHashOutputRow('SHA-256 Checksum', fileHashes.sha256, 'file-sha256')}
@@ -212,7 +212,7 @@ export default function HashClient() {
             <Button
               variant="ghost"
               onClick={handleClear}
-              className="text-[var(--color-text-secondary)] hover:text-[var(--color-danger)] text-xs cursor-pointer"
+              className="text-(--color-text-secondary) hover:text-(--color-danger) text-xs cursor-pointer"
             >
               Reset / Clear Inputs
             </Button>

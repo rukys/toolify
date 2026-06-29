@@ -94,22 +94,22 @@ export default function JSONFormatterClient() {
             placeholder='Paste your raw JSON here... e.g. {"name":"Toolify","active":true}'
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            className="w-full p-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface-alt)] font-mono text-sm focus:border-[var(--color-primary)] focus:outline-none placeholder:text-[var(--color-text-muted)]"
+            className="w-full p-4 rounded-xl border border-(--color-border) bg-(--color-surface-alt) font-mono text-sm focus:border-(--color-primary) focus:outline-none placeholder:text-(--color-text-muted)"
           />
         </div>
 
         {/* Options Row */}
-        <div className="flex flex-wrap items-center justify-between gap-4 p-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface-alt)]">
+        <div className="flex flex-wrap items-center justify-between gap-4 p-4 rounded-xl border border-(--color-border) bg-(--color-surface-alt)">
           <div className="flex items-center gap-4">
             <div className="space-y-1">
-              <Label htmlFor="indent-size" className="text-xs text-[var(--color-text-secondary)]">
+              <Label htmlFor="indent-size" className="text-xs text-(--color-text-secondary)">
                 Indent Size
               </Label>
               <select
                 id="indent-size"
                 value={indent}
                 onChange={(e) => setIndent(e.target.value as '2' | '4' | 'tab')}
-                className="block w-24 px-2 py-1.5 text-sm rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] focus:border-[var(--color-primary)] focus:outline-none cursor-pointer"
+                className="block w-24 px-2 py-1.5 text-sm rounded-lg border border-(--color-border) bg-(--color-surface) focus:border-(--color-primary) focus:outline-none cursor-pointer"
               >
                 <option value="2">2 Spaces</option>
                 <option value="4">4 Spaces</option>
@@ -124,7 +124,7 @@ export default function JSONFormatterClient() {
                 onCheckedChange={(checked) => setSortKeys(!!checked)}
                 className="cursor-pointer"
               />
-              <Label htmlFor="sort-keys" className="text-xs text-[var(--color-text-secondary)] cursor-pointer select-none">
+              <Label htmlFor="sort-keys" className="text-xs text-(--color-text-secondary) cursor-pointer select-none">
                 Sort Object Keys
               </Label>
             </div>
@@ -137,7 +137,7 @@ export default function JSONFormatterClient() {
             <Button variant="secondary" onClick={handleMinify} className="cursor-pointer">
               Minify
             </Button>
-            <Button variant="ghost" onClick={handleClear} className="text-[var(--color-text-secondary)] hover:text-[var(--color-danger)] cursor-pointer">
+            <Button variant="ghost" onClick={handleClear} className="text-(--color-text-secondary) hover:text-(--color-danger) cursor-pointer">
               Clear
             </Button>
           </div>
@@ -159,7 +159,7 @@ export default function JSONFormatterClient() {
               <Button variant="outline" size="sm" onClick={handleCopy} className="cursor-pointer text-xs">
                 {copied ? (
                   <>
-                    <Check className="w-3.5 h-3.5 mr-1 text-[var(--color-success)]" /> Copied
+                    <Check className="w-3.5 h-3.5 mr-1 text-(--color-success)" /> Copied
                   </>
                 ) : (
                   <>

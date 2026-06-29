@@ -115,7 +115,7 @@ export default function MergeClient() {
                 variant="ghost"
                 size="sm"
                 onClick={handleClear}
-                className="text-xs text-[var(--color-text-secondary)] hover:text-[var(--color-danger)] cursor-pointer h-8 px-2"
+                className="text-xs text-(--color-text-secondary) hover:text-(--color-danger) cursor-pointer h-8 px-2"
               >
                 <Trash2 className="w-3.5 h-3.5 mr-1" /> Clear All
               </Button>
@@ -134,7 +134,7 @@ export default function MergeClient() {
 
               {/* Smaller Dropzone for appending files */}
               {items.length < 20 && (
-                <div className="border border-dashed rounded-xl p-4 bg-[var(--color-surface-alt)] hover:border-[var(--color-primary)] transition-colors">
+                <div className="border border-dashed rounded-xl p-4 bg-(--color-surface-alt) hover:border-(--color-primary) transition-colors">
                   <DropZone
                     accept={{ 'application/pdf': ['.pdf'] }}
                     maxSizeMB={50}
@@ -173,7 +173,7 @@ export default function MergeClient() {
         {/* Output Section */}
         {output && (
           <div className="space-y-2 pt-2 animate-fade-in">
-            <Label className="text-xs font-bold text-[var(--color-text-secondary)] uppercase tracking-wider">
+            <Label className="text-xs font-bold text-(--color-text-secondary) uppercase tracking-wider">
               Merged Document
             </Label>
             <OutputArea

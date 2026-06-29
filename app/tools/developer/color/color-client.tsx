@@ -123,10 +123,10 @@ export default function ColorClient() {
   const contrast = getContrastRatio(color)
 
   const getWCAGLabel = (ratio: number) => {
-    if (ratio >= 7) return <span className="text-[var(--color-success)] font-semibold">PASS (AAA)</span>
-    if (ratio >= 4.5) return <span className="text-[var(--color-success)] font-semibold">PASS (AA)</span>
+    if (ratio >= 7) return <span className="text-(--color-success) font-semibold">PASS (AAA)</span>
+    if (ratio >= 4.5) return <span className="text-(--color-success) font-semibold">PASS (AA)</span>
     if (ratio >= 3) return <span className="text-amber-500 font-semibold">PASS (Large Text Only)</span>
-    return <span className="text-[var(--color-danger)] font-semibold">FAIL</span>
+    return <span className="text-(--color-danger) font-semibold">FAIL</span>
   }
 
   return (
@@ -139,7 +139,7 @@ export default function ColorClient() {
             
             {/* Color Preview Block */}
             <div
-              className="w-full h-44 rounded-2xl border border-[var(--color-border)] shadow-inner flex flex-col justify-end p-4 transition-all duration-150"
+              className="w-full h-44 rounded-2xl border border-(--color-border) shadow-inner flex flex-col justify-end p-4 transition-all duration-150"
               style={{ backgroundColor: color }}
             >
               <div className="bg-black/40 backdrop-blur-md rounded-lg p-2.5 text-white space-y-0.5 text-xs font-mono w-fit">
@@ -155,10 +155,10 @@ export default function ColorClient() {
                 type="color"
                 value={color}
                 onChange={handlePickerChange}
-                className="w-12 h-12 rounded-xl border border-[var(--color-border)] cursor-pointer bg-transparent"
+                className="w-12 h-12 rounded-xl border border-(--color-border) cursor-pointer bg-transparent"
               />
               <div className="flex-1 space-y-1">
-                <span className="text-xs text-[var(--color-text-secondary)]">Click color box to open system color wheel picker</span>
+                <span className="text-xs text-(--color-text-secondary)">Click color box to open system color wheel picker</span>
               </div>
             </div>
           </div>
@@ -169,7 +169,7 @@ export default function ColorClient() {
 
             {/* HEX Input */}
             <div className="grid grid-cols-12 items-center gap-3">
-              <span className="col-span-2 text-xs font-semibold text-[var(--color-text-secondary)]">HEX</span>
+              <span className="col-span-2 text-xs font-semibold text-(--color-text-secondary)">HEX</span>
               <div className="col-span-8 relative">
                 <Input
                   type="text"
@@ -184,16 +184,16 @@ export default function ColorClient() {
                 className="col-span-2 cursor-pointer h-9 px-0"
                 onClick={() => handleCopyText('hex', color.toUpperCase())}
               >
-                {copiedMap['hex'] ? <Check className="w-4 h-4 text-[var(--color-success)]" /> : <Copy className="w-4 h-4" />}
+                {copiedMap['hex'] ? <Check className="w-4 h-4 text-(--color-success)" /> : <Copy className="w-4 h-4" />}
               </Button>
             </div>
 
             {/* RGB Input */}
             <div className="grid grid-cols-12 items-center gap-3">
-              <span className="col-span-2 text-xs font-semibold text-[var(--color-text-secondary)]">RGB</span>
+              <span className="col-span-2 text-xs font-semibold text-(--color-text-secondary)">RGB</span>
               <div className="col-span-8 flex gap-2">
                 <div className="flex-1 relative">
-                  <span className="absolute left-2.5 top-1/2 -translate-y-1/2 text-[9px] text-[var(--color-text-muted)] font-bold">R</span>
+                  <span className="absolute left-2.5 top-1/2 -translate-y-1/2 text-[9px] text-(--color-text-muted) font-bold">R</span>
                   <Input
                     type="text"
                     value={rInput}
@@ -202,7 +202,7 @@ export default function ColorClient() {
                   />
                 </div>
                 <div className="flex-1 relative">
-                  <span className="absolute left-2.5 top-1/2 -translate-y-1/2 text-[9px] text-[var(--color-text-muted)] font-bold">G</span>
+                  <span className="absolute left-2.5 top-1/2 -translate-y-1/2 text-[9px] text-(--color-text-muted) font-bold">G</span>
                   <Input
                     type="text"
                     value={gInput}
@@ -211,7 +211,7 @@ export default function ColorClient() {
                   />
                 </div>
                 <div className="flex-1 relative">
-                  <span className="absolute left-2.5 top-1/2 -translate-y-1/2 text-[9px] text-[var(--color-text-muted)] font-bold">B</span>
+                  <span className="absolute left-2.5 top-1/2 -translate-y-1/2 text-[9px] text-(--color-text-muted) font-bold">B</span>
                   <Input
                     type="text"
                     value={bInput}
@@ -226,16 +226,16 @@ export default function ColorClient() {
                 className="col-span-2 cursor-pointer h-9 px-0"
                 onClick={() => handleCopyText('rgb', `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`)}
               >
-                {copiedMap['rgb'] ? <Check className="w-4 h-4 text-[var(--color-success)]" /> : <Copy className="w-4 h-4" />}
+                {copiedMap['rgb'] ? <Check className="w-4 h-4 text-(--color-success)" /> : <Copy className="w-4 h-4" />}
               </Button>
             </div>
 
             {/* HSL Input */}
             <div className="grid grid-cols-12 items-center gap-3">
-              <span className="col-span-2 text-xs font-semibold text-[var(--color-text-secondary)]">HSL</span>
+              <span className="col-span-2 text-xs font-semibold text-(--color-text-secondary)">HSL</span>
               <div className="col-span-8 flex gap-2">
                 <div className="flex-1 relative">
-                  <span className="absolute left-2.5 top-1/2 -translate-y-1/2 text-[9px] text-[var(--color-text-muted)] font-bold">H</span>
+                  <span className="absolute left-2.5 top-1/2 -translate-y-1/2 text-[9px] text-(--color-text-muted) font-bold">H</span>
                   <Input
                     type="text"
                     value={hInput}
@@ -244,7 +244,7 @@ export default function ColorClient() {
                   />
                 </div>
                 <div className="flex-1 relative">
-                  <span className="absolute left-2.5 top-1/2 -translate-y-1/2 text-[9px] text-[var(--color-text-muted)] font-bold">S%</span>
+                  <span className="absolute left-2.5 top-1/2 -translate-y-1/2 text-[9px] text-(--color-text-muted) font-bold">S%</span>
                   <Input
                     type="text"
                     value={sInput}
@@ -253,7 +253,7 @@ export default function ColorClient() {
                   />
                 </div>
                 <div className="flex-1 relative">
-                  <span className="absolute left-2.5 top-1/2 -translate-y-1/2 text-[9px] text-[var(--color-text-muted)] font-bold">L%</span>
+                  <span className="absolute left-2.5 top-1/2 -translate-y-1/2 text-[9px] text-(--color-text-muted) font-bold">L%</span>
                   <Input
                     type="text"
                     value={lInput}
@@ -268,43 +268,43 @@ export default function ColorClient() {
                 className="col-span-2 cursor-pointer h-9 px-0"
                 onClick={() => handleCopyText('hsl', `hsl(${hsl.h}, ${hsl.s}%, ${hsl.l}%)`)}
               >
-                {copiedMap['hsl'] ? <Check className="w-4 h-4 text-[var(--color-success)]" /> : <Copy className="w-4 h-4" />}
+                {copiedMap['hsl'] ? <Check className="w-4 h-4 text-(--color-success)" /> : <Copy className="w-4 h-4" />}
               </Button>
             </div>
 
             {/* CMYK & CSS Variable Values */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
-              <div className="p-3 border border-[var(--color-border)] rounded-xl bg-[var(--color-surface-alt)] flex items-center justify-between text-xs">
+              <div className="p-3 border border-(--color-border) rounded-xl bg-(--color-surface-alt) flex items-center justify-between text-xs">
                 <div>
-                  <p className="font-semibold text-[var(--color-text-secondary)]">CMYK Format</p>
-                  <p className="font-mono text-[var(--color-text-primary)] mt-1">
+                  <p className="font-semibold text-(--color-text-secondary)">CMYK Format</p>
+                  <p className="font-mono text-(--color-text-primary) mt-1">
                     cmyk({cmyk.c}%, {cmyk.m}%, {cmyk.y}%, {cmyk.k}%)
                   </p>
                 </div>
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="w-7 h-7 cursor-pointer hover:bg-[var(--color-surface)]"
+                  className="w-7 h-7 cursor-pointer hover:bg-(--color-surface)"
                   onClick={() => handleCopyText('cmyk', `cmyk(${cmyk.c}%, ${cmyk.m}%, ${cmyk.y}%, ${cmyk.k}%)`)}
                 >
-                  {copiedMap['cmyk'] ? <Check className="w-3.5 h-3.5 text-[var(--color-success)]" /> : <Copy className="w-3.5 h-3.5" />}
+                  {copiedMap['cmyk'] ? <Check className="w-3.5 h-3.5 text-(--color-success)" /> : <Copy className="w-3.5 h-3.5" />}
                 </Button>
               </div>
 
-              <div className="p-3 border border-[var(--color-border)] rounded-xl bg-[var(--color-surface-alt)] flex items-center justify-between text-xs">
+              <div className="p-3 border border-(--color-border) rounded-xl bg-(--color-surface-alt) flex items-center justify-between text-xs">
                 <div>
-                  <p className="font-semibold text-[var(--color-text-secondary)]">CSS Property</p>
-                  <p className="font-mono text-[var(--color-text-primary)] mt-1">
+                  <p className="font-semibold text-(--color-text-secondary)">CSS Property</p>
+                  <p className="font-mono text-(--color-text-primary) mt-1">
                     --color-val: {color.toLowerCase()};
                   </p>
                 </div>
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="w-7 h-7 cursor-pointer hover:bg-[var(--color-surface)]"
+                  className="w-7 h-7 cursor-pointer hover:bg-(--color-surface)"
                   onClick={() => handleCopyText('cssvar', `--color-val: ${color.toLowerCase()};`)}
                 >
-                  {copiedMap['cssvar'] ? <Check className="w-3.5 h-3.5 text-[var(--color-success)]" /> : <Copy className="w-3.5 h-3.5" />}
+                  {copiedMap['cssvar'] ? <Check className="w-3.5 h-3.5 text-(--color-success)" /> : <Copy className="w-3.5 h-3.5" />}
                 </Button>
               </div>
             </div>
@@ -314,7 +314,7 @@ export default function ColorClient() {
         {/* Tints & Shades Scale */}
         <div className="space-y-3">
           <Label className="text-sm font-semibold">Tints & Shades Palette</Label>
-          <div className="grid grid-cols-11 gap-1 h-12 rounded-xl overflow-hidden border border-[var(--color-border)] shadow-sm">
+          <div className="grid grid-cols-11 gap-1 h-12 rounded-xl overflow-hidden border border-(--color-border) shadow-sm">
             {/* Tints from light to dark */}
             {tints.map((tintHex) => (
               <button
@@ -355,7 +355,7 @@ export default function ColorClient() {
               </button>
             ))}
           </div>
-          <p className="text-[10px] text-[var(--color-text-muted)] text-center">Click any square block above to set it as active color.</p>
+          <p className="text-[10px] text-(--color-text-muted) text-center">Click any square block above to set it as active color.</p>
         </div>
 
         {/* Contrast Ratio & WCAG Checker */}
@@ -363,14 +363,14 @@ export default function ColorClient() {
           <Label className="text-sm font-semibold">Contrast Ratio & WCAG Conformance</Label>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* White Text Contrast */}
-            <div className="p-4 border border-[var(--color-border)] rounded-xl bg-[var(--color-surface-alt)] space-y-3">
+            <div className="p-4 border border-(--color-border) rounded-xl bg-(--color-surface-alt) space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-semibold text-[var(--color-text-secondary)]">Against White Text (#FFFFFF)</span>
+                <span className="text-xs font-semibold text-(--color-text-secondary)">Against White Text (#FFFFFF)</span>
                 {getWCAGLabel(contrast.white)}
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-2xl font-bold font-mono">{contrast.white}:1</span>
-                <span className="text-[10px] text-[var(--color-text-muted)]">Minimum 4.5:1 (AA) / 7:1 (AAA)</span>
+                <span className="text-[10px] text-(--color-text-muted)">Minimum 4.5:1 (AA) / 7:1 (AAA)</span>
               </div>
               <div
                 className="p-4 rounded-lg flex items-center justify-center text-white text-sm font-medium transition-all"
@@ -381,14 +381,14 @@ export default function ColorClient() {
             </div>
 
             {/* Black Text Contrast */}
-            <div className="p-4 border border-[var(--color-border)] rounded-xl bg-[var(--color-surface-alt)] space-y-3">
+            <div className="p-4 border border-(--color-border) rounded-xl bg-(--color-surface-alt) space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-semibold text-[var(--color-text-secondary)]">Against Black Text (#000000)</span>
+                <span className="text-xs font-semibold text-(--color-text-secondary)">Against Black Text (#000000)</span>
                 {getWCAGLabel(contrast.black)}
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-2xl font-bold font-mono">{contrast.black}:1</span>
-                <span className="text-[10px] text-[var(--color-text-muted)]">Minimum 4.5:1 (AA) / 7:1 (AAA)</span>
+                <span className="text-[10px] text-(--color-text-muted)">Minimum 4.5:1 (AA) / 7:1 (AAA)</span>
               </div>
               <div
                 className="p-4 rounded-lg flex items-center justify-center text-black text-sm font-medium transition-all"

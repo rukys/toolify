@@ -76,7 +76,7 @@ export default function MarkdownClient() {
       return DOMPurify.sanitize(raw)
     } catch (e) {
       console.error(e)
-      return '<p class="text-[var(--color-danger)]">Error rendering Markdown</p>'
+      return '<p class="text-(--color-danger)">Error rendering Markdown</p>'
     }
   }, [text])
 
@@ -267,7 +267,7 @@ export default function MarkdownClient() {
 
       <div className="space-y-4">
         {/* Action Header bar */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-[var(--color-surface-alt)] p-3 rounded-xl border border-[var(--color-border)]">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-(--color-surface-alt) p-3 rounded-xl border border-(--color-border)">
           <div className="flex flex-wrap gap-2">
             <Button
               variant="outline"
@@ -275,7 +275,7 @@ export default function MarkdownClient() {
               onClick={handleLoadSample}
               className="text-xs h-8 cursor-pointer gap-1"
             >
-              <Sparkles className="w-3.5 h-3.5 text-[var(--color-accent)]" />
+              <Sparkles className="w-3.5 h-3.5 text-(--color-accent)" />
               Load Sample
             </Button>
             {text && (
@@ -283,7 +283,7 @@ export default function MarkdownClient() {
                 variant="ghost"
                 size="sm"
                 onClick={handleClear}
-                className="text-xs h-8 text-[var(--color-text-secondary)] hover:text-[var(--color-danger)] cursor-pointer gap-1"
+                className="text-xs h-8 text-(--color-text-secondary) hover:text-(--color-danger) cursor-pointer gap-1"
               >
                 <Trash2 className="w-3.5 h-3.5" />
                 Clear
@@ -326,14 +326,14 @@ export default function MarkdownClient() {
         </div>
 
         {/* Mobile Tab Swapper */}
-        <div className="flex md:hidden border border-[var(--color-border)] rounded-lg p-1 bg-[var(--color-surface-alt)]">
+        <div className="flex md:hidden border border-(--color-border) rounded-lg p-1 bg-(--color-surface-alt)">
           <button
             type="button"
             onClick={() => setMobileTab('edit')}
             className={`flex-grow py-2 text-xs font-semibold rounded-md transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
               mobileTab === 'edit'
-                ? 'bg-[var(--color-surface)] text-[var(--color-primary)] shadow-sm'
-                : 'text-[var(--color-text-secondary)]'
+                ? 'bg-(--color-surface) text-(--color-primary) shadow-sm'
+                : 'text-(--color-text-secondary)'
             }`}
           >
             <Edit3 className="w-3.5 h-3.5" />
@@ -344,8 +344,8 @@ export default function MarkdownClient() {
             onClick={() => setMobileTab('preview')}
             className={`flex-grow py-2 text-xs font-semibold rounded-md transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
               mobileTab === 'preview'
-                ? 'bg-[var(--color-surface)] text-[var(--color-primary)] shadow-sm'
-                : 'text-[var(--color-text-secondary)]'
+                ? 'bg-(--color-surface) text-(--color-primary) shadow-sm'
+                : 'text-(--color-text-secondary)'
             }`}
           >
             <Eye className="w-3.5 h-3.5" />
@@ -361,7 +361,7 @@ export default function MarkdownClient() {
               mobileTab === 'edit' ? 'flex' : 'hidden md:flex'
             }`}
           >
-            <Label htmlFor="markdown-editor" className="text-xs font-bold text-[var(--color-text-secondary)] mb-1.5 uppercase tracking-wider">
+            <Label htmlFor="markdown-editor" className="text-xs font-bold text-(--color-text-secondary) mb-1.5 uppercase tracking-wider">
               Markdown Editor
             </Label>
             <textarea
@@ -369,7 +369,7 @@ export default function MarkdownClient() {
               value={text}
               onChange={(e) => setText(e.target.value)}
               placeholder="Type or paste Markdown here..."
-              className="flex-1 w-full p-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] text-sm focus:border-[var(--color-primary)] focus:outline-none placeholder:text-[var(--color-text-muted)] resize-none font-mono leading-relaxed"
+              className="flex-1 w-full p-4 rounded-xl border border-(--color-border) bg-(--color-surface) text-sm focus:border-(--color-primary) focus:outline-none placeholder:text-(--color-text-muted) resize-none font-mono leading-relaxed"
             />
           </div>
 
@@ -379,15 +379,15 @@ export default function MarkdownClient() {
               mobileTab === 'preview' ? 'flex' : 'hidden md:flex'
             }`}
           >
-            <Label className="text-xs font-bold text-[var(--color-text-secondary)] mb-1.5 uppercase tracking-wider">
+            <Label className="text-xs font-bold text-(--color-text-secondary) mb-1.5 uppercase tracking-wider">
               HTML Preview
             </Label>
-            <div className="flex-1 w-full p-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface-alt)] overflow-y-auto text-sm markdown-preview-area">
+            <div className="flex-1 w-full p-4 rounded-xl border border-(--color-border) bg-(--color-surface-alt) overflow-y-auto text-sm markdown-preview-area">
               {text.trim() ? (
                 <div dangerouslySetInnerHTML={{ __html: previewHtml }} />
               ) : (
-                <div className="h-full flex flex-col items-center justify-center text-[var(--color-text-muted)] text-center p-6">
-                  <BookOpen className="w-8 h-8 mb-2 opacity-50 text-[var(--color-primary)]" />
+                <div className="h-full flex flex-col items-center justify-center text-(--color-text-muted) text-center p-6">
+                  <BookOpen className="w-8 h-8 mb-2 opacity-50 text-(--color-primary)" />
                   <p className="text-xs">Your rendered preview will appear here.</p>
                   <p className="text-[11px] mt-1">Type in the editor or click &quot;Load Sample&quot; to see how it works.</p>
                 </div>
@@ -397,16 +397,16 @@ export default function MarkdownClient() {
         </div>
 
         {/* Live analytics bar */}
-        <div className="flex flex-wrap items-center justify-between text-xs text-[var(--color-text-secondary)] bg-[var(--color-surface-alt)] px-4 py-2.5 rounded-lg border border-[var(--color-border)] font-mono">
+        <div className="flex flex-wrap items-center justify-between text-xs text-(--color-text-secondary) bg-(--color-surface-alt) px-4 py-2.5 rounded-lg border border-(--color-border) font-mono">
           <div className="flex gap-4">
             <span>
-              Words: <strong className="text-[var(--color-text-primary)]">{stats.words}</strong>
+              Words: <strong className="text-(--color-text-primary)">{stats.words}</strong>
             </span>
             <span>
-              Characters: <strong className="text-[var(--color-text-primary)]">{stats.characters}</strong>
+              Characters: <strong className="text-(--color-text-primary)">{stats.characters}</strong>
             </span>
             <span>
-              Paragraphs: <strong className="text-[var(--color-text-primary)]">{stats.paragraphs}</strong>
+              Paragraphs: <strong className="text-(--color-text-primary)">{stats.paragraphs}</strong>
             </span>
           </div>
           <div>

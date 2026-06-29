@@ -122,7 +122,7 @@ export default function CaseConverterClient() {
                 variant="ghost"
                 size="sm"
                 onClick={handleClear}
-                className="text-xs text-[var(--color-text-muted)] hover:text-[var(--color-danger)] cursor-pointer h-8 px-2"
+                className="text-xs text-(--color-text-muted) hover:text-(--color-danger) cursor-pointer h-8 px-2"
               >
                 Clear
               </Button>
@@ -134,13 +134,13 @@ export default function CaseConverterClient() {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Type or paste your text here to convert..."
-            className="w-full p-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface-alt)] text-sm focus:border-[var(--color-primary)] focus:outline-none placeholder:text-[var(--color-text-muted)] leading-relaxed"
+            className="w-full p-4 rounded-xl border border-(--color-border) bg-(--color-surface-alt) text-sm focus:border-(--color-primary) focus:outline-none placeholder:text-(--color-text-muted) leading-relaxed"
           />
         </div>
 
         {/* Buttons Grid */}
         <div className="space-y-3">
-          <Label className="text-xs text-[var(--color-text-secondary)] font-semibold">
+          <Label className="text-xs text-(--color-text-secondary) font-semibold">
             Convert & Auto-Copy Options
           </Label>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">

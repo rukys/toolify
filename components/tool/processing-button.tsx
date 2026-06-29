@@ -34,8 +34,8 @@ export function ProcessingButton({ onClick, label, className, disabled = false }
       disabled={disabled || status === 'processing'}
       className={cn(
         'px-6 py-3 font-semibold transition-colors cursor-pointer',
-        status === 'done' && 'bg-[var(--color-success)] text-white hover:bg-[var(--color-success)]',
-        status === 'error' && 'bg-[var(--color-danger)] text-white hover:bg-[var(--color-danger)]',
+        status === 'done' && 'bg-(--color-success) text-white hover:bg-(--color-success)',
+        status === 'error' && 'bg-(--color-danger) text-white hover:bg-(--color-danger)',
         className
       )}
     >

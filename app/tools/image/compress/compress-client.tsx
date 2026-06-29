@@ -152,7 +152,7 @@ export default function CompressClient() {
                 variant="ghost"
                 size="sm"
                 onClick={handleClear}
-                className="text-xs text-[var(--color-text-secondary)] hover:text-[var(--color-danger)] cursor-pointer h-8 px-2"
+                className="text-xs text-(--color-text-secondary) hover:text-(--color-danger) cursor-pointer h-8 px-2"
               >
                 <Trash2 className="w-3.5 h-3.5 mr-1" /> Clear All
               </Button>
@@ -166,18 +166,18 @@ export default function CompressClient() {
                 {files.map((file, idx) => (
                   <div
                     key={idx}
-                    className="flex items-center gap-3 p-3 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] shadow-xs"
+                    className="flex items-center gap-3 p-3 rounded-xl border border-(--color-border) bg-(--color-surface) shadow-xs"
                   >
-                    <div className="p-2 rounded-lg bg-[var(--color-primary-light)] text-[var(--color-primary)]">
+                    <div className="p-2 rounded-lg bg-(--color-primary-light) text-(--color-primary)">
                       <FileImage className="w-4 h-4" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="text-sm font-semibold text-[var(--color-text-primary)] truncate">
+                      <p className="text-sm font-semibold text-(--color-text-primary) truncate">
                         {file.name}
                       </p>
-                      <p className="text-xs text-[var(--color-text-muted)] mt-0.5">
+                      <p className="text-xs text-(--color-text-muted) mt-0.5">
                         {formatSize(file.size)} •{' '}
-                        <span className="text-[var(--color-accent)] font-medium">
+                        <span className="text-(--color-accent) font-medium">
                           Estimated output: {estimateOutputSize(file.size, quality)}
                         </span>
                       </p>
@@ -187,7 +187,7 @@ export default function CompressClient() {
                       variant="ghost"
                       size="icon"
                       onClick={() => handleRemove(idx)}
-                      className="text-[var(--color-text-secondary)] hover:text-[var(--color-danger)] hover:bg-[var(--color-surface-alt)] cursor-pointer h-9 w-9"
+                      className="text-(--color-text-secondary) hover:text-(--color-danger) hover:bg-(--color-surface-alt) cursor-pointer h-9 w-9"
                     >
                       <Trash2 className="w-4 h-4" />
                     </Button>
@@ -197,7 +197,7 @@ export default function CompressClient() {
 
               {/* Smaller Dropzone for appending files */}
               {files.length < 20 && (
-                <div className="border border-dashed rounded-xl p-4 bg-[var(--color-surface-alt)] hover:border-[var(--color-primary)] transition-colors">
+                <div className="border border-dashed rounded-xl p-4 bg-(--color-surface-alt) hover:border-(--color-primary) transition-colors">
                   <DropZone
                     accept={{
                       'image/jpeg': ['.jpg', '.jpeg'],
@@ -231,20 +231,20 @@ export default function CompressClient() {
 
         {/* Configurations */}
         {files.length > 0 && (
-          <div className="space-y-5 border-t border-[var(--color-border)] pt-5 animate-fade-in">
-            <Label className="text-xs font-bold text-[var(--color-text-secondary)] uppercase tracking-wider">
+          <div className="space-y-5 border-t border-(--color-border) pt-5 animate-fade-in">
+            <Label className="text-xs font-bold text-(--color-text-secondary) uppercase tracking-wider">
               Compression Settings
             </Label>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-5 bg-[var(--color-surface-alt)] border border-[var(--color-border)] rounded-xl">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-5 bg-(--color-surface-alt) border border-(--color-border) rounded-xl">
               {/* Quality slider */}
               <div className="space-y-3">
                 <div className="flex justify-between items-center text-xs">
                   <Label htmlFor="quality-slider" className="font-semibold">Compression Quality</Label>
-                  <span className="font-mono text-[var(--color-primary)] font-bold">{quality}%</span>
+                  <span className="font-mono text-(--color-primary) font-bold">{quality}%</span>
                 </div>
                 <div className="flex items-center gap-4">
-                  <span className="text-[10px] text-[var(--color-text-muted)] font-semibold uppercase">Size</span>
+                  <span className="text-[10px] text-(--color-text-muted) font-semibold uppercase">Size</span>
                   <Slider
                     id="quality-slider"
                     min={10}
@@ -257,9 +257,9 @@ export default function CompressClient() {
                     }}
                     className="flex-1"
                   />
-                  <span className="text-[10px] text-[var(--color-text-muted)] font-semibold uppercase">Quality</span>
+                  <span className="text-[10px] text-(--color-text-muted) font-semibold uppercase">Quality</span>
                 </div>
-                <p className="text-[10px] text-[var(--color-text-secondary)]">
+                <p className="text-[10px] text-(--color-text-secondary)">
                   Lower quality results in smaller file sizes, but may introduce compression artifacts.
                 </p>
               </div>
@@ -268,7 +268,7 @@ export default function CompressClient() {
               <div className="space-y-1.5 justify-self-stretch sm:justify-self-start min-w-[200px]">
                 <Label htmlFor="output-format-select" className="text-xs font-semibold">Output Format</Label>
                 <Select value={format} onValueChange={(val) => { if (val) setFormat(val) }}>
-                  <SelectTrigger id="output-format-select" className="bg-[var(--color-surface)]">
+                  <SelectTrigger id="output-format-select" className="bg-(--color-surface)">
                     <SelectValue placeholder="Format options" />
                   </SelectTrigger>
                   <SelectContent>
@@ -278,7 +278,7 @@ export default function CompressClient() {
                     <SelectItem value="image/webp">WEBP</SelectItem>
                   </SelectContent>
                 </Select>
-                <p className="text-[10px] text-[var(--color-text-secondary)] mt-1">
+                <p className="text-[10px] text-(--color-text-secondary) mt-1">
                   Leave same as input or override to convert images formats.
                 </p>
               </div>
@@ -297,9 +297,9 @@ export default function CompressClient() {
 
         {/* Output Section */}
         {results.length > 0 && (
-          <div className="space-y-3 pt-2 border-t border-[var(--color-border)] animate-fade-in">
+          <div className="space-y-3 pt-2 border-t border-(--color-border) animate-fade-in">
             <div className="flex items-center justify-between">
-              <Label className="text-xs font-bold text-[var(--color-text-secondary)] uppercase tracking-wider">
+              <Label className="text-xs font-bold text-(--color-text-secondary) uppercase tracking-wider">
                 Optimization Results
               </Label>
               {zipBlob && (
@@ -322,18 +322,18 @@ export default function CompressClient() {
                 sizeInfo={`${formatSize(results[0].originalSize)} → ${formatSize(results[0].compressedSize)} (${results[0].reduction}% smaller)`}
               />
             ) : (
-              <div className="space-y-2 border border-[var(--color-border)] rounded-xl bg-[var(--color-surface-alt)] overflow-hidden">
-                <div className="divide-y divide-[var(--color-border)]">
+              <div className="space-y-2 border border-(--color-border) rounded-xl bg-(--color-surface-alt) overflow-hidden">
+                <div className="divide-y divide-(--color-border)">
                   {results.map((res, idx) => (
                     <div
                       key={idx}
-                      className="flex items-center justify-between p-3 bg-[var(--color-surface)] text-sm"
+                      className="flex items-center justify-between p-3 bg-(--color-surface) text-sm"
                     >
                       <div className="min-w-0 pr-4">
                         <p className="font-semibold text-xs truncate max-w-[280px]">{res.name}</p>
-                        <p className="text-[10px] text-[var(--color-text-muted)] mt-0.5">
+                        <p className="text-[10px] text-(--color-text-muted) mt-0.5">
                           {formatSize(res.originalSize)} → {formatSize(res.compressedSize)} •{' '}
-                          <span className="text-[var(--color-success)] font-semibold">
+                          <span className="text-(--color-success) font-semibold">
                             {res.reduction}% saved
                           </span>
                         </p>

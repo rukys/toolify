@@ -148,18 +148,18 @@ export default function TimestampClient() {
     <ToolLayout tool={tool}>
       <div className="space-y-6">
         {/* Live Current Time Panel */}
-        <div className="p-4 border border-[var(--color-border)] rounded-xl bg-[var(--color-surface-alt)] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div className="p-4 border border-(--color-border) rounded-xl bg-(--color-surface-alt) flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-lg bg-[var(--color-primary-light)] text-[var(--color-primary)] flex items-center justify-center shrink-0">
+            <div className="w-10 h-10 rounded-lg bg-(--color-primary-light) text-(--color-primary) flex items-center justify-center shrink-0">
               <Clock className="w-5 h-5 animate-pulse" />
             </div>
             <div>
-              <p className="text-xs text-[var(--color-text-secondary)] font-semibold uppercase tracking-wider">Current Unix Epoch Time</p>
+              <p className="text-xs text-(--color-text-secondary) font-semibold uppercase tracking-wider">Current Unix Epoch Time</p>
               <div className="flex flex-wrap items-baseline gap-x-2 mt-1">
-                <span className="text-xl font-bold font-mono tracking-tight text-[var(--color-primary)]">{currentSec}</span>
-                <span className="text-xs text-[var(--color-text-muted)]">seconds</span>
-                <span className="text-sm font-semibold font-mono text-[var(--color-text-secondary)] ml-2">/ {currentMs}</span>
-                <span className="text-[10px] text-[var(--color-text-muted)]">milliseconds</span>
+                <span className="text-xl font-bold font-mono tracking-tight text-(--color-primary)">{currentSec}</span>
+                <span className="text-xs text-(--color-text-muted)">seconds</span>
+                <span className="text-sm font-semibold font-mono text-(--color-text-secondary) ml-2">/ {currentMs}</span>
+                <span className="text-[10px] text-(--color-text-muted)">milliseconds</span>
               </div>
             </div>
           </div>
@@ -201,7 +201,7 @@ export default function TimestampClient() {
                 className="font-mono text-sm pr-12"
               />
               {detectedUnit && (
-                <span className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[9px] uppercase font-bold bg-[var(--color-primary-light)] text-[var(--color-primary)] px-1.5 py-0.5 rounded border border-blue-200">
+                <span className="absolute right-3.5 top-1/2 -translate-y-1/2 text-[9px] uppercase font-bold bg-(--color-primary-light) text-(--color-primary) px-1.5 py-0.5 rounded border border-blue-200">
                   {detectedUnit}
                 </span>
               )}
@@ -221,7 +221,7 @@ export default function TimestampClient() {
                 onChange={(e) => handleDateConvert(e.target.value)}
                 className="text-sm pr-8 cursor-pointer"
               />
-              <Calendar className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[var(--color-text-muted)] pointer-events-none" />
+              <Calendar className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-(--color-text-muted) pointer-events-none" />
             </div>
           </div>
         </div>
@@ -230,13 +230,13 @@ export default function TimestampClient() {
         {utcTime ? (
           <div className="space-y-3 pt-2">
             <Label className="text-sm font-semibold">Conversion Outputs</Label>
-            <div className="border border-[var(--color-border)] rounded-xl overflow-hidden text-xs">
-              <div className="divide-y divide-[var(--color-border)]">
+            <div className="border border-(--color-border) rounded-xl overflow-hidden text-xs">
+              <div className="divide-y divide-(--color-border)">
                 {/* UTC Time */}
-                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between p-3 gap-2 hover:bg-[var(--color-surface-alt)]/30">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between p-3 gap-2 hover:bg-(--color-surface-alt)/30">
                   <div className="space-y-0.5">
-                    <p className="font-semibold text-[var(--color-text-secondary)]">UTC Date-Time</p>
-                    <p className="font-mono text-[var(--color-text-primary)]">{utcTime}</p>
+                    <p className="font-semibold text-(--color-text-secondary)">UTC Date-Time</p>
+                    <p className="font-mono text-(--color-text-primary)">{utcTime}</p>
                   </div>
                   <Button
                     variant="outline"
@@ -244,16 +244,16 @@ export default function TimestampClient() {
                     className="cursor-pointer text-[10px] h-7 w-20 shrink-0"
                     onClick={() => handleCopyText('utc', utcTime)}
                   >
-                    {copiedMap['utc'] ? <Check className="w-3.5 h-3.5 text-[var(--color-success)] mr-1" /> : <Copy className="w-3.5 h-3.5 mr-1" />}
+                    {copiedMap['utc'] ? <Check className="w-3.5 h-3.5 text-(--color-success) mr-1" /> : <Copy className="w-3.5 h-3.5 mr-1" />}
                     {copiedMap['utc'] ? 'Copied' : 'Copy'}
                   </Button>
                 </div>
 
                 {/* Local Time */}
-                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between p-3 gap-2 hover:bg-[var(--color-surface-alt)]/30">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between p-3 gap-2 hover:bg-(--color-surface-alt)/30">
                   <div className="space-y-0.5">
-                    <p className="font-semibold text-[var(--color-text-secondary)]">Local Date-Time</p>
-                    <p className="font-mono text-[var(--color-text-primary)]">{localTime}</p>
+                    <p className="font-semibold text-(--color-text-secondary)">Local Date-Time</p>
+                    <p className="font-mono text-(--color-text-primary)">{localTime}</p>
                   </div>
                   <Button
                     variant="outline"
@@ -261,16 +261,16 @@ export default function TimestampClient() {
                     className="cursor-pointer text-[10px] h-7 w-20 shrink-0"
                     onClick={() => handleCopyText('local', localTime)}
                   >
-                    {copiedMap['local'] ? <Check className="w-3.5 h-3.5 text-[var(--color-success)] mr-1" /> : <Copy className="w-3.5 h-3.5 mr-1" />}
+                    {copiedMap['local'] ? <Check className="w-3.5 h-3.5 text-(--color-success) mr-1" /> : <Copy className="w-3.5 h-3.5 mr-1" />}
                     {copiedMap['local'] ? 'Copied' : 'Copy'}
                   </Button>
                 </div>
 
                 {/* ISO 8601 */}
-                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between p-3 gap-2 hover:bg-[var(--color-surface-alt)]/30">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between p-3 gap-2 hover:bg-(--color-surface-alt)/30">
                   <div className="space-y-0.5">
-                    <p className="font-semibold text-[var(--color-text-secondary)]">ISO 8601 String</p>
-                    <p className="font-mono text-[var(--color-text-primary)] break-all">{isoTime}</p>
+                    <p className="font-semibold text-(--color-text-secondary)">ISO 8601 String</p>
+                    <p className="font-mono text-(--color-text-primary) break-all">{isoTime}</p>
                   </div>
                   <Button
                     variant="outline"
@@ -278,16 +278,16 @@ export default function TimestampClient() {
                     className="cursor-pointer text-[10px] h-7 w-20 shrink-0"
                     onClick={() => handleCopyText('iso', isoTime)}
                   >
-                    {copiedMap['iso'] ? <Check className="w-3.5 h-3.5 text-[var(--color-success)] mr-1" /> : <Copy className="w-3.5 h-3.5 mr-1" />}
+                    {copiedMap['iso'] ? <Check className="w-3.5 h-3.5 text-(--color-success) mr-1" /> : <Copy className="w-3.5 h-3.5 mr-1" />}
                     {copiedMap['iso'] ? 'Copied' : 'Copy'}
                   </Button>
                 </div>
 
                 {/* Relative Time */}
-                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between p-3 gap-2 hover:bg-[var(--color-surface-alt)]/30">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between p-3 gap-2 hover:bg-(--color-surface-alt)/30">
                   <div className="space-y-0.5">
-                    <p className="font-semibold text-[var(--color-text-secondary)]">Relative Age</p>
-                    <p className="font-mono text-[var(--color-text-primary)]">{relativeTime}</p>
+                    <p className="font-semibold text-(--color-text-secondary)">Relative Age</p>
+                    <p className="font-mono text-(--color-text-primary)">{relativeTime}</p>
                   </div>
                   <Button
                     variant="outline"
@@ -295,7 +295,7 @@ export default function TimestampClient() {
                     className="cursor-pointer text-[10px] h-7 w-20 shrink-0"
                     onClick={() => handleCopyText('relative', relativeTime)}
                   >
-                    {copiedMap['relative'] ? <Check className="w-3.5 h-3.5 text-[var(--color-success)] mr-1" /> : <Copy className="w-3.5 h-3.5 mr-1" />}
+                    {copiedMap['relative'] ? <Check className="w-3.5 h-3.5 text-(--color-success) mr-1" /> : <Copy className="w-3.5 h-3.5 mr-1" />}
                     {copiedMap['relative'] ? 'Copied' : 'Copy'}
                   </Button>
                 </div>
@@ -303,7 +303,7 @@ export default function TimestampClient() {
             </div>
           </div>
         ) : (
-          <div className="flex items-center justify-center p-8 border border-dashed border-[var(--color-border)] rounded-xl bg-[var(--color-surface-alt)] text-[var(--color-text-muted)] text-xs">
+          <div className="flex items-center justify-center p-8 border border-dashed border-(--color-border) rounded-xl bg-(--color-surface-alt) text-(--color-text-muted) text-xs">
             Enter a valid timestamp or calendar date to see conversions
           </div>
         )}

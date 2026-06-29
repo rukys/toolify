@@ -72,7 +72,7 @@ export default function RegexClient() {
   // Renders test string with highlighted matches using <mark>
   const renderHighlights = () => {
     if (!testString) {
-      return <span className="text-[var(--color-text-muted)] italic">Test string is empty</span>
+      return <span className="text-(--color-text-muted) italic">Test string is empty</span>
     }
     if (matches.length === 0) {
       return <span>{testString}</span>
@@ -128,16 +128,16 @@ export default function RegexClient() {
               Regular Expression Pattern
             </Label>
             <div className="relative">
-              <span className="absolute left-3.5 top-1/2 -translate-y-1/2 font-mono text-xs text-[var(--color-text-muted)]">/</span>
+              <span className="absolute left-3.5 top-1/2 -translate-y-1/2 font-mono text-xs text-(--color-text-muted)">/</span>
               <input
                 id="regex-pattern"
                 type="text"
                 value={pattern}
                 onChange={(e) => setPattern(e.target.value)}
                 placeholder="Enter regex pattern..."
-                className="w-full pl-6 pr-12 py-2.5 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface-alt)] font-mono text-sm focus:border-[var(--color-primary)] focus:outline-none"
+                className="w-full pl-6 pr-12 py-2.5 rounded-xl border border-(--color-border) bg-(--color-surface-alt) font-mono text-sm focus:border-(--color-primary) focus:outline-none"
               />
-              <span className="absolute right-3.5 top-1/2 -translate-y-1/2 font-mono text-xs text-[var(--color-text-muted)]">
+              <span className="absolute right-3.5 top-1/2 -translate-y-1/2 font-mono text-xs text-(--color-text-muted)">
                 /{globalFlag ? 'g' : ''}{caseFlag ? 'i' : ''}{multiFlag ? 'm' : ''}{dotAllFlag ? 's' : ''}{unicodeFlag ? 'u' : ''}
               </span>
             </div>
@@ -145,8 +145,8 @@ export default function RegexClient() {
 
           {/* Flag Options */}
           <div className="space-y-2">
-            <Label className="text-xs text-[var(--color-text-secondary)] font-semibold">Flags</Label>
-            <div className="flex flex-wrap gap-x-4 gap-y-2 p-3 border border-[var(--color-border)] rounded-xl bg-[var(--color-surface-alt)]">
+            <Label className="text-xs text-(--color-text-secondary) font-semibold">Flags</Label>
+            <div className="flex flex-wrap gap-x-4 gap-y-2 p-3 border border-(--color-border) rounded-xl bg-(--color-surface-alt)">
               <label className="flex items-center gap-2 text-xs cursor-pointer select-none">
                 <Checkbox checked={globalFlag} onCheckedChange={(checked) => setGlobalFlag(!!checked)} />
                 <span>global (g)</span>
@@ -181,7 +181,7 @@ export default function RegexClient() {
               value={testString}
               onChange={(e) => setTestString(e.target.value)}
               placeholder="Enter text to match against the regular expression..."
-              className="w-full p-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface-alt)] font-mono text-sm focus:border-[var(--color-primary)] focus:outline-none"
+              className="w-full p-4 rounded-xl border border-(--color-border) bg-(--color-surface-alt) font-mono text-sm focus:border-(--color-primary) focus:outline-none"
             />
           </div>
 
@@ -196,7 +196,7 @@ export default function RegexClient() {
           {/* Action Buttons */}
           {(pattern || testString) && (
             <div className="flex justify-end">
-              <Button variant="ghost" onClick={handleClear} className="text-[var(--color-text-secondary)] hover:text-[var(--color-danger)] text-xs cursor-pointer">
+              <Button variant="ghost" onClick={handleClear} className="text-(--color-text-secondary) hover:text-(--color-danger) text-xs cursor-pointer">
                 Clear Fields
               </Button>
             </div>
@@ -208,7 +208,7 @@ export default function RegexClient() {
           {/* Matches Highlight Box */}
           <div className="space-y-2">
             <Label className="text-sm font-semibold">Regex Match Highlight</Label>
-            <div className="p-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] min-h-[120px] max-h-[300px] overflow-auto whitespace-pre-wrap select-text leading-relaxed">
+            <div className="p-4 rounded-xl border border-(--color-border) bg-(--color-surface) min-h-[120px] max-h-[300px] overflow-auto whitespace-pre-wrap select-text leading-relaxed">
               {renderHighlights()}
             </div>
           </div>
@@ -219,27 +219,27 @@ export default function RegexClient() {
               Matches ({matches.length})
             </Label>
             {matches.length > 0 ? (
-              <div className="border border-[var(--color-border)] rounded-xl overflow-hidden max-h-[300px] overflow-y-auto">
+              <div className="border border-(--color-border) rounded-xl overflow-hidden max-h-[300px] overflow-y-auto">
                 <table className="w-full border-collapse text-xs text-left">
                   <thead>
-                    <tr className="bg-[var(--color-surface-alt)] border-b border-[var(--color-border)]">
-                      <th className="p-3 font-semibold text-[var(--color-text-primary)] w-16">No</th>
-                      <th className="p-3 font-semibold text-[var(--color-text-primary)]">Match</th>
-                      <th className="p-3 font-semibold text-[var(--color-text-primary)] w-24">Index</th>
-                      <th className="p-3 font-semibold text-[var(--color-text-primary)]">Groups</th>
+                    <tr className="bg-(--color-surface-alt) border-b border-(--color-border)">
+                      <th className="p-3 font-semibold text-(--color-text-primary) w-16">No</th>
+                      <th className="p-3 font-semibold text-(--color-text-primary)">Match</th>
+                      <th className="p-3 font-semibold text-(--color-text-primary) w-24">Index</th>
+                      <th className="p-3 font-semibold text-(--color-text-primary)">Groups</th>
                     </tr>
                   </thead>
                   <tbody>
                     {matches.map((m, idx) => (
-                      <tr key={idx} className="border-b border-[var(--color-border)]/50 last:border-b-0 hover:bg-[var(--color-surface-alt)]/50">
-                        <td className="p-3 text-[var(--color-text-muted)] font-mono">{idx + 1}</td>
-                        <td className="p-3 font-mono text-[var(--color-primary)] font-semibold break-all">{m.match}</td>
-                        <td className="p-3 text-[var(--color-text-secondary)] font-mono">{m.index}</td>
-                        <td className="p-3 text-[var(--color-text-muted)] font-mono break-all">
+                      <tr key={idx} className="border-b border-(--color-border)/50 last:border-b-0 hover:bg-(--color-surface-alt)/50">
+                        <td className="p-3 text-(--color-text-muted) font-mono">{idx + 1}</td>
+                        <td className="p-3 font-mono text-(--color-primary) font-semibold break-all">{m.match}</td>
+                        <td className="p-3 text-(--color-text-secondary) font-mono">{m.index}</td>
+                        <td className="p-3 text-(--color-text-muted) font-mono break-all">
                           {m.groups.length > 0 ? (
                             <span className="flex flex-wrap gap-1">
                               {m.groups.map((group, gIdx) => (
-                                <span key={gIdx} className="px-1.5 py-0.5 rounded bg-[var(--color-primary-light)] text-[var(--color-primary)] text-[10px]" title={`Group ${gIdx + 1}`}>
+                                <span key={gIdx} className="px-1.5 py-0.5 rounded bg-(--color-primary-light) text-(--color-primary) text-[10px]" title={`Group ${gIdx + 1}`}>
                                   {group === undefined ? 'undefined' : `"${group}"`}
                                 </span>
                               ))}
@@ -254,7 +254,7 @@ export default function RegexClient() {
                 </table>
               </div>
             ) : (
-              <div className="flex items-center justify-center p-8 border border-dashed border-[var(--color-border)] rounded-xl bg-[var(--color-surface-alt)] text-[var(--color-text-muted)] text-xs">
+              <div className="flex items-center justify-center p-8 border border-dashed border-(--color-border) rounded-xl bg-(--color-surface-alt) text-(--color-text-muted) text-xs">
                 No matching substrings found
               </div>
             )}

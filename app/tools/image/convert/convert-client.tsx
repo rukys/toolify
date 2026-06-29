@@ -110,15 +110,15 @@ export default function ConvertClient() {
           <Label className="text-sm font-semibold">Upload Image</Label>
 
           {file ? (
-            <div className="flex items-center gap-3 p-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface-alt)]">
-              <FileImage className="w-8 h-8 text-[var(--color-primary)] shrink-0" />
+            <div className="flex items-center gap-3 p-4 rounded-xl border border-(--color-border) bg-(--color-surface-alt)">
+              <FileImage className="w-8 h-8 text-(--color-primary) shrink-0" />
               <div className="flex-1 min-w-0">
-                <p className="text-sm font-semibold truncate text-[var(--color-text-primary)]">
+                <p className="text-sm font-semibold truncate text-(--color-text-primary)">
                   {file.name}
                 </p>
-                <p className="text-xs text-[var(--color-text-muted)] mt-0.5">
+                <p className="text-xs text-(--color-text-muted) mt-0.5">
                   {(file.size / 1024 / 1024).toFixed(2)} MB •{' '}
-                  <span className="font-semibold text-[var(--color-primary)]">{getFormatLabel(file.type)}</span>
+                  <span className="font-semibold text-(--color-primary)">{getFormatLabel(file.type)}</span>
                   {origDimensions && ` • ${origDimensions.width} × ${origDimensions.height} px`}
                 </p>
               </div>
@@ -126,7 +126,7 @@ export default function ConvertClient() {
                 variant="ghost"
                 size="icon"
                 onClick={handleRemove}
-                className="text-[var(--color-text-secondary)] hover:text-[var(--color-danger)] hover:bg-[var(--color-surface)] cursor-pointer h-9 w-9"
+                className="text-(--color-text-secondary) hover:text-(--color-danger) hover:bg-(--color-surface) cursor-pointer h-9 w-9"
               >
                 <Trash2 className="w-4 h-4" />
               </Button>
@@ -145,12 +145,12 @@ export default function ConvertClient() {
 
         {/* Configurations */}
         {file && (
-          <div className="space-y-5 border-t border-[var(--color-border)] pt-5 animate-fade-in">
-            <Label className="text-xs font-bold text-[var(--color-text-secondary)] uppercase tracking-wider">
+          <div className="space-y-5 border-t border-(--color-border) pt-5 animate-fade-in">
+            <Label className="text-xs font-bold text-(--color-text-secondary) uppercase tracking-wider">
               Conversion Configurations
             </Label>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-5 bg-[var(--color-surface-alt)] border border-[var(--color-border)] rounded-xl">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-5 bg-(--color-surface-alt) border border-(--color-border) rounded-xl">
               {/* Target Format */}
               <div className="space-y-1.5 justify-self-stretch sm:justify-self-start min-w-[200px]">
                 <Label htmlFor="target-format-select" className="text-xs font-semibold">Convert to Format</Label>
@@ -158,7 +158,7 @@ export default function ConvertClient() {
                   value={targetFormat}
                   onValueChange={(val) => { if (val) setTargetFormat(val as ImageFormat) }}
                 >
-                  <SelectTrigger id="target-format-select" className="bg-[var(--color-surface)]">
+                  <SelectTrigger id="target-format-select" className="bg-(--color-surface)">
                     <SelectValue placeholder="Select target format" />
                   </SelectTrigger>
                   <SelectContent>
@@ -169,10 +169,10 @@ export default function ConvertClient() {
                     <SelectItem value="image/bmp">BMP</SelectItem>
                   </SelectContent>
                 </Select>
-                <p className="text-[10px] text-[var(--color-text-secondary)] mt-1 flex items-center gap-1">
+                <p className="text-[10px] text-(--color-text-secondary) mt-1 flex items-center gap-1">
                   <span>{getFormatLabel(file.type)}</span>
                   <ArrowRight className="w-3 h-3" />
-                  <span className="font-semibold text-[var(--color-primary)]">{getFormatLabel(targetFormat)}</span>
+                  <span className="font-semibold text-(--color-primary)">{getFormatLabel(targetFormat)}</span>
                 </p>
               </div>
 
@@ -180,10 +180,10 @@ export default function ConvertClient() {
               <div className={`space-y-3 transition-opacity duration-200 ${isLossyFormat ? 'opacity-100' : 'opacity-40 pointer-events-none'}`}>
                 <div className="flex justify-between items-center text-xs">
                   <Label htmlFor="quality-slider" className="font-semibold">Image Quality (Lossy Formats)</Label>
-                  <span className="font-mono text-[var(--color-primary)] font-bold">{quality}%</span>
+                  <span className="font-mono text-(--color-primary) font-bold">{quality}%</span>
                 </div>
                 <div className="flex items-center gap-4">
-                  <span className="text-[10px] text-[var(--color-text-muted)] font-semibold uppercase">Size</span>
+                  <span className="text-[10px] text-(--color-text-muted) font-semibold uppercase">Size</span>
                   <Slider
                     id="quality-slider"
                     min={10}
@@ -197,9 +197,9 @@ export default function ConvertClient() {
                     disabled={!isLossyFormat}
                     className="flex-1"
                   />
-                  <span className="text-[10px] text-[var(--color-text-muted)] font-semibold uppercase">Quality</span>
+                  <span className="text-[10px] text-(--color-text-muted) font-semibold uppercase">Quality</span>
                 </div>
-                <p className="text-[10px] text-[var(--color-text-secondary)]">
+                <p className="text-[10px] text-(--color-text-secondary)">
                   Only applies to JPEG/WEBP output formats. PNG, GIF, and BMP conversion is lossless.
                 </p>
               </div>
@@ -215,7 +215,7 @@ export default function ConvertClient() {
         {/* Output Section */}
         {output && (
           <div className="space-y-2 pt-2 animate-fade-in">
-            <Label className="text-xs font-bold text-[var(--color-text-secondary)] uppercase tracking-wider">
+            <Label className="text-xs font-bold text-(--color-text-secondary) uppercase tracking-wider">
               Converted Result
             </Label>
             <OutputArea

@@ -34,7 +34,7 @@ export default function WordCounterClient() {
                 variant="ghost"
                 size="sm"
                 onClick={handleClear}
-                className="text-xs text-[var(--color-text-muted)] hover:text-[var(--color-danger)] cursor-pointer h-8 px-2"
+                className="text-xs text-(--color-text-muted) hover:text-(--color-danger) cursor-pointer h-8 px-2"
               >
                 <Trash2 className="w-3.5 h-3.5 mr-1" /> Clear
               </Button>
@@ -46,7 +46,7 @@ export default function WordCounterClient() {
             value={text}
             onChange={(e) => setText(e.target.value)}
             placeholder="Type, paste, or edit your text here to count characters, words, sentences..."
-            className="w-full p-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface-alt)] text-sm focus:border-[var(--color-primary)] focus:outline-none placeholder:text-[var(--color-text-muted)] leading-relaxed"
+            className="w-full p-4 rounded-xl border border-(--color-border) bg-(--color-surface-alt) text-sm focus:border-(--color-primary) focus:outline-none placeholder:text-(--color-text-muted) leading-relaxed"
           />
         </div>
 
@@ -56,33 +56,33 @@ export default function WordCounterClient() {
           
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {/* Words */}
-            <div className="p-4 border border-[var(--color-border)] rounded-xl bg-[var(--color-surface-alt)] text-center space-y-1">
-              <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[var(--color-text-secondary)]">Words</span>
-              <p className="text-xl sm:text-2xl font-bold font-mono text-[var(--color-primary)]">
+            <div className="p-4 border border-(--color-border) rounded-xl bg-(--color-surface-alt) text-center space-y-1">
+              <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-(--color-text-secondary)">Words</span>
+              <p className="text-xl sm:text-2xl font-bold font-mono text-(--color-primary)">
                 {stats.words.toLocaleString()}
               </p>
             </div>
 
             {/* Characters */}
-            <div className="p-4 border border-[var(--color-border)] rounded-xl bg-[var(--color-surface-alt)] text-center space-y-1">
-              <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[var(--color-text-secondary)]">Characters</span>
-              <p className="text-xl sm:text-2xl font-bold font-mono text-[var(--color-text-primary)]">
+            <div className="p-4 border border-(--color-border) rounded-xl bg-(--color-surface-alt) text-center space-y-1">
+              <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-(--color-text-secondary)">Characters</span>
+              <p className="text-xl sm:text-2xl font-bold font-mono text-(--color-text-primary)">
                 {stats.characters.toLocaleString()}
               </p>
             </div>
 
             {/* Chars no spaces */}
-            <div className="p-4 border border-[var(--color-border)] rounded-xl bg-[var(--color-surface-alt)] text-center space-y-1">
-              <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[var(--color-text-secondary)]">No Spaces</span>
-              <p className="text-xl sm:text-2xl font-bold font-mono text-[var(--color-text-primary)]">
+            <div className="p-4 border border-(--color-border) rounded-xl bg-(--color-surface-alt) text-center space-y-1">
+              <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-(--color-text-secondary)">No Spaces</span>
+              <p className="text-xl sm:text-2xl font-bold font-mono text-(--color-text-primary)">
                 {stats.charactersNoSpaces.toLocaleString()}
               </p>
             </div>
 
             {/* Sentences */}
-            <div className="p-4 border border-[var(--color-border)] rounded-xl bg-[var(--color-surface-alt)] text-center space-y-1">
-              <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-[var(--color-text-secondary)]">Sentences</span>
-              <p className="text-xl sm:text-2xl font-bold font-mono text-[var(--color-text-primary)]">
+            <div className="p-4 border border-(--color-border) rounded-xl bg-(--color-surface-alt) text-center space-y-1">
+              <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-(--color-text-secondary)">Sentences</span>
+              <p className="text-xl sm:text-2xl font-bold font-mono text-(--color-text-primary)">
                 {stats.sentences.toLocaleString()}
               </p>
             </div>
@@ -90,21 +90,21 @@ export default function WordCounterClient() {
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {/* Paragraphs */}
-            <div className="p-4 border border-[var(--color-border)] rounded-xl bg-[var(--color-surface-alt)] flex items-center justify-between text-xs">
-              <span className="font-semibold text-[var(--color-text-secondary)]">Paragraphs</span>
-              <span className="font-mono font-bold text-sm text-[var(--color-text-primary)]">{stats.paragraphs}</span>
+            <div className="p-4 border border-(--color-border) rounded-xl bg-(--color-surface-alt) flex items-center justify-between text-xs">
+              <span className="font-semibold text-(--color-text-secondary)">Paragraphs</span>
+              <span className="font-mono font-bold text-sm text-(--color-text-primary)">{stats.paragraphs}</span>
             </div>
 
             {/* Reading Time */}
-            <div className="p-4 border border-[var(--color-border)] rounded-xl bg-[var(--color-surface-alt)] flex items-center justify-between text-xs">
-              <span className="font-semibold text-[var(--color-text-secondary)]">Reading Duration</span>
-              <span className="font-mono font-bold text-sm text-[var(--color-text-primary)]">{stats.readingTime}</span>
+            <div className="p-4 border border-(--color-border) rounded-xl bg-(--color-surface-alt) flex items-center justify-between text-xs">
+              <span className="font-semibold text-(--color-text-secondary)">Reading Duration</span>
+              <span className="font-mono font-bold text-sm text-(--color-text-primary)">{stats.readingTime}</span>
             </div>
 
             {/* Speaking Time */}
-            <div className="p-4 border border-[var(--color-border)] rounded-xl bg-[var(--color-surface-alt)] flex items-center justify-between text-xs">
-              <span className="font-semibold text-[var(--color-text-secondary)]">Speaking Duration</span>
-              <span className="font-mono font-bold text-sm text-[var(--color-text-primary)]">{stats.speakingTime}</span>
+            <div className="p-4 border border-(--color-border) rounded-xl bg-(--color-surface-alt) flex items-center justify-between text-xs">
+              <span className="font-semibold text-(--color-text-secondary)">Speaking Duration</span>
+              <span className="font-mono font-bold text-sm text-(--color-text-primary)">{stats.speakingTime}</span>
             </div>
           </div>
         </div>

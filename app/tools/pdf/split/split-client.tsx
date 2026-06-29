@@ -139,15 +139,15 @@ export default function SplitClient() {
           <Label className="text-sm font-semibold">Upload PDF File</Label>
 
           {file ? (
-            <div className="flex items-center gap-3 p-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface-alt)]">
-              <FileIcon className="w-8 h-8 text-[var(--color-primary)] shrink-0" />
+            <div className="flex items-center gap-3 p-4 rounded-xl border border-(--color-border) bg-(--color-surface-alt)">
+              <FileIcon className="w-8 h-8 text-(--color-primary) shrink-0" />
               <div className="flex-1 min-w-0">
-                <p className="text-sm font-semibold truncate text-[var(--color-text-primary)]">
+                <p className="text-sm font-semibold truncate text-(--color-text-primary)">
                   {file.name}
                 </p>
-                <p className="text-xs text-[var(--color-text-muted)] mt-0.5">
+                <p className="text-xs text-(--color-text-muted) mt-0.5">
                   {(file.size / 1024 / 1024).toFixed(2)} MB •{' '}
-                  <strong className="text-[var(--color-primary)]">
+                  <strong className="text-(--color-primary)">
                     {totalPages > 0 ? `${totalPages} page${totalPages > 1 ? 's' : ''}` : 'Loading page count...'}
                   </strong>
                 </p>
@@ -156,7 +156,7 @@ export default function SplitClient() {
                 variant="ghost"
                 size="icon"
                 onClick={handleRemove}
-                className="text-[var(--color-text-secondary)] hover:text-[var(--color-danger)] hover:bg-[var(--color-surface)] cursor-pointer h-9 w-9"
+                className="text-(--color-text-secondary) hover:text-(--color-danger) hover:bg-(--color-surface) cursor-pointer h-9 w-9"
               >
                 <Trash2 className="w-4 h-4" />
               </Button>
@@ -173,8 +173,8 @@ export default function SplitClient() {
 
         {/* Configurations */}
         {file && totalPages > 0 && (
-          <div className="space-y-4 border-t border-[var(--color-border)] pt-5 animate-fade-in">
-            <Label className="text-xs font-bold text-[var(--color-text-secondary)] uppercase tracking-wider">
+          <div className="space-y-4 border-t border-(--color-border) pt-5 animate-fade-in">
+            <Label className="text-xs font-bold text-(--color-text-secondary) uppercase tracking-wider">
               Split Configurations
             </Label>
 
@@ -185,8 +185,8 @@ export default function SplitClient() {
                 onClick={() => setSplitMode('individual')}
                 className={`flex flex-col items-center justify-center p-4 rounded-xl border text-center transition-all cursor-pointer ${
                   splitMode === 'individual'
-                    ? 'border-[var(--color-primary)] bg-[var(--color-primary-light)] text-[var(--color-primary)] shadow-sm'
-                    : 'border-[var(--color-border)] hover:border-[var(--color-text-muted)] bg-[var(--color-surface)]'
+                    ? 'border-(--color-primary) bg-(--color-primary-light) text-(--color-primary) shadow-sm'
+                    : 'border-(--color-border) hover:border-(--color-text-muted) bg-(--color-surface)'
                 }`}
               >
                 <Grid className="w-5 h-5 mb-2" />
@@ -199,8 +199,8 @@ export default function SplitClient() {
                 onClick={() => setSplitMode('range')}
                 className={`flex flex-col items-center justify-center p-4 rounded-xl border text-center transition-all cursor-pointer ${
                   splitMode === 'range'
-                    ? 'border-[var(--color-primary)] bg-[var(--color-primary-light)] text-[var(--color-primary)] shadow-sm'
-                    : 'border-[var(--color-border)] hover:border-[var(--color-text-muted)] bg-[var(--color-surface)]'
+                    ? 'border-(--color-primary) bg-(--color-primary-light) text-(--color-primary) shadow-sm'
+                    : 'border-(--color-border) hover:border-(--color-text-muted) bg-(--color-surface)'
                 }`}
               >
                 <Layers className="w-5 h-5 mb-2" />
@@ -213,8 +213,8 @@ export default function SplitClient() {
                 onClick={() => setSplitMode('every-n')}
                 className={`flex flex-col items-center justify-center p-4 rounded-xl border text-center transition-all cursor-pointer ${
                   splitMode === 'every-n'
-                    ? 'border-[var(--color-primary)] bg-[var(--color-primary-light)] text-[var(--color-primary)] shadow-sm'
-                    : 'border-[var(--color-border)] hover:border-[var(--color-text-muted)] bg-[var(--color-surface)]'
+                    ? 'border-(--color-primary) bg-(--color-primary-light) text-(--color-primary) shadow-sm'
+                    : 'border-(--color-border) hover:border-(--color-text-muted) bg-(--color-surface)'
                 }`}
               >
                 <Layers className="w-5 h-5 mb-2 rotate-90" />
@@ -224,12 +224,12 @@ export default function SplitClient() {
             </div>
 
             {/* Split Mode details inputs */}
-            <div className="bg-[var(--color-surface-alt)] p-4 rounded-xl border border-[var(--color-border)]">
+            <div className="bg-(--color-surface-alt) p-4 rounded-xl border border-(--color-border)">
               {splitMode === 'individual' && (
                 <div className="text-xs space-y-1">
                   <p className="font-semibold">Extract Every Page</p>
-                  <p className="text-[var(--color-text-secondary)]">
-                    This will split the document into <strong className="text-[var(--color-primary)]">{totalPages}</strong> separate PDF files, bundled together into a single `.zip` file for easy download.
+                  <p className="text-(--color-text-secondary)">
+                    This will split the document into <strong className="text-(--color-primary)">{totalPages}</strong> separate PDF files, bundled together into a single `.zip` file for easy download.
                   </p>
                 </div>
               )}
@@ -243,13 +243,13 @@ export default function SplitClient() {
                       value={rangeInput}
                       onChange={(e) => setRangeInput(e.target.value)}
                       placeholder="e.g. 1-3, 5, 8-10"
-                      className="bg-[var(--color-surface)]"
+                      className="bg-(--color-surface)"
                     />
                   </div>
-                  <div className="flex justify-between items-center text-xs text-[var(--color-text-secondary)] font-mono">
+                  <div className="flex justify-between items-center text-xs text-(--color-text-secondary) font-mono">
                     <span>
                       Selected:{' '}
-                      <strong className="text-[var(--color-primary)]">
+                      <strong className="text-(--color-primary)">
                         {rangeCount} page{rangeCount !== 1 ? 's' : ''}
                       </strong>
                     </span>
@@ -277,13 +277,13 @@ export default function SplitClient() {
                           if (!isNaN(num)) setNInput(num)
                         }
                       }}
-                      className="bg-[var(--color-surface)]"
+                      className="bg-(--color-surface)"
                     />
                   </div>
-                  <div className="flex justify-between items-center text-xs text-[var(--color-text-secondary)] font-mono">
+                  <div className="flex justify-between items-center text-xs text-(--color-text-secondary) font-mono">
                     <span>
                       Batch output:{' '}
-                      <strong className="text-[var(--color-primary)]">
+                      <strong className="text-(--color-primary)">
                         {batchCount} file{batchCount !== 1 ? 's' : ''}
                       </strong>
                     </span>
@@ -313,7 +313,7 @@ export default function SplitClient() {
         {/* Output Section */}
         {output && (
           <div className="space-y-2 pt-2 animate-fade-in">
-            <Label className="text-xs font-bold text-[var(--color-text-secondary)] uppercase tracking-wider">
+            <Label className="text-xs font-bold text-(--color-text-secondary) uppercase tracking-wider">
               Output Document
             </Label>
             <OutputArea

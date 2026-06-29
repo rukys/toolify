@@ -17,34 +17,34 @@ export default function PdfToolsPage() {
   const pdfTools = getToolsByCategory('pdf')
 
   return (
-    <div className="flex flex-col min-h-screen bg-[var(--color-surface)] text-[var(--color-text-primary)]">
+    <div className="flex flex-col min-h-screen bg-(--color-surface) text-(--color-text-primary)">
       <Header />
 
       <main className="flex-1 max-w-6xl w-full mx-auto px-4 py-8 space-y-8">
         {/* Breadcrumbs */}
-        <div className="flex items-center gap-2 text-xs text-[var(--color-text-secondary)]">
-          <Link href="/" className="hover:text-[var(--color-primary)] transition-colors">
+        <div className="flex items-center gap-2 text-xs text-(--color-text-secondary)">
+          <Link href="/" className="hover:text-(--color-primary) transition-colors">
             Home
           </Link>
           <span>/</span>
-          <Link href="/tools" className="hover:text-[var(--color-primary)] transition-colors">
+          <Link href="/tools" className="hover:text-(--color-primary) transition-colors">
             Tools
           </Link>
           <span>/</span>
-          <span className="text-[var(--color-text-muted)] font-medium">PDF</span>
+          <span className="text-(--color-text-muted) font-medium">PDF</span>
         </div>
 
         {/* Header Section */}
-        <div className="space-y-2 border-b border-[var(--color-border)] pb-6">
+        <div className="space-y-2 border-b border-(--color-border) pb-6">
           <h1 className="text-3xl font-extrabold tracking-tight">PDF Utilities</h1>
-          <p className="text-sm text-[var(--color-text-secondary)] max-w-2xl">
+          <p className="text-sm text-(--color-text-secondary) max-w-2xl">
             Merge, split, compress, and convert your PDF files securely. All processing runs 100% client-side inside your browser—no files are uploaded to any server.
           </p>
         </div>
 
         {/* Tools Grid */}
         <div className="space-y-4">
-          <div className="flex justify-between items-center text-xs text-[var(--color-text-muted)]">
+          <div className="flex justify-between items-center text-xs text-(--color-text-muted)">
             <span>
               Showing {pdfTools.length} {pdfTools.length === 1 ? 'utility' : 'utilities'}
             </span>

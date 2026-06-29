@@ -71,16 +71,16 @@ export default function UUIDClient() {
     <ToolLayout tool={tool}>
       <div className="space-y-6">
         {/* Options Row */}
-        <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 p-4 rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface-alt)] items-end">
+        <div className="grid grid-cols-1 sm:grid-cols-12 gap-4 p-4 rounded-2xl border border-(--color-border) bg-(--color-surface-alt) items-end">
           <div className="sm:col-span-4 space-y-1">
-            <Label htmlFor="id-version" className="text-xs text-[var(--color-text-secondary)] font-semibold">
+            <Label htmlFor="id-version" className="text-xs text-(--color-text-secondary) font-semibold">
               ID Version
             </Label>
             <select
               id="id-version"
               value={version}
               onChange={(e) => setVersion(e.target.value as IDVersion)}
-              className="block w-full px-3 py-2 text-sm rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] focus:border-[var(--color-primary)] focus:outline-none cursor-pointer font-medium"
+              className="block w-full px-3 py-2 text-sm rounded-lg border border-(--color-border) bg-(--color-surface) focus:border-(--color-primary) focus:outline-none cursor-pointer font-medium"
             >
               <option value="v4">UUID v4 (Random)</option>
               <option value="v7">UUID v7 (Time-ordered)</option>
@@ -89,7 +89,7 @@ export default function UUIDClient() {
           </div>
 
           <div className="sm:col-span-4 space-y-1">
-            <div className="flex justify-between text-xs text-[var(--color-text-secondary)] font-semibold">
+            <div className="flex justify-between text-xs text-(--color-text-secondary) font-semibold">
               <Label htmlFor="id-count">Generate Count</Label>
               <span className="font-mono">{count}</span>
             </div>
@@ -101,7 +101,7 @@ export default function UUIDClient() {
               step="1"
               value={count}
               onChange={(e) => setCount(Number(e.target.value))}
-              className="w-full h-8 accent-[var(--color-primary)] cursor-pointer"
+              className="w-full h-8 accent-(--color-primary) cursor-pointer"
             />
           </div>
 
@@ -137,7 +137,7 @@ export default function UUIDClient() {
               >
                 {copiedAll ? (
                   <>
-                    <Check className="w-3.5 h-3.5 mr-1.5 text-[var(--color-success)]" /> Copied All
+                    <Check className="w-3.5 h-3.5 mr-1.5 text-(--color-success)" /> Copied All
                   </>
                 ) : (
                   <>
@@ -147,16 +147,16 @@ export default function UUIDClient() {
               </Button>
             </div>
 
-            <div className="border border-[var(--color-border)] rounded-xl overflow-hidden divide-y divide-[var(--color-border)] max-h-[360px] overflow-y-auto">
+            <div className="border border-(--color-border) rounded-xl overflow-hidden divide-y divide-(--color-border) max-h-[360px] overflow-y-auto">
               {results.map((id, idx) => (
                 <div
                   key={idx}
-                  className="flex items-center justify-between p-3 bg-[var(--color-surface-alt)]/30 hover:bg-[var(--color-surface-alt)]/65 transition-colors text-xs font-mono"
+                  className="flex items-center justify-between p-3 bg-(--color-surface-alt)/30 hover:bg-(--color-surface-alt)/65 transition-colors text-xs font-mono"
                 >
-                  <span className="text-[var(--color-text-muted)] font-mono select-none pr-3 w-8">
+                  <span className="text-(--color-text-muted) font-mono select-none pr-3 w-8">
                     {idx + 1}
                   </span>
-                  <span className="flex-1 select-all break-all text-[var(--color-primary)] font-semibold pr-4">
+                  <span className="flex-1 select-all break-all text-(--color-primary) font-semibold pr-4">
                     {id}
                   </span>
                   <Button
@@ -166,7 +166,7 @@ export default function UUIDClient() {
                     onClick={() => handleCopyOne(idx, id)}
                   >
                     {copiedIdx === idx ? (
-                      <span className="text-[var(--color-success)] flex items-center font-sans text-[10px]">
+                      <span className="text-(--color-success) flex items-center font-sans text-[10px]">
                         <Check className="w-3.5 h-3.5 mr-1" /> Copied
                       </span>
                     ) : (

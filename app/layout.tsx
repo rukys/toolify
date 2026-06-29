@@ -21,7 +21,7 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-[var(--color-surface)] text-[var(--color-text-primary)]">
+      <body className="min-h-full flex flex-col bg-(--color-surface) text-(--color-text-primary)">
         {children}
       </body>
     </html>
