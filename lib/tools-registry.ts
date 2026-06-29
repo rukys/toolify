@@ -1,0 +1,320 @@
+import { ToolMeta } from '@/types/tools'
+
+export const tools: ToolMeta[] = [
+  // === DEVELOPER TOOLS (Phase 1) ===
+  {
+    id: 'json-formatter',
+    name: 'JSON Formatter',
+    description: 'Format, validate, and minify JSON instantly',
+    category: 'developer',
+    href: '/tools/developer/json',
+    icon: 'Braces',
+    tags: ['json', 'format', 'validate', 'minify', 'beautify'],
+    phase: 1,
+    processingLocation: 'client',
+  },
+  {
+    id: 'base64',
+    name: 'Base64 Encode / Decode',
+    description: 'Encode or decode text and files to Base64',
+    category: 'developer',
+    href: '/tools/developer/base64',
+    icon: 'Code2',
+    tags: ['base64', 'encode', 'decode'],
+    phase: 1,
+    processingLocation: 'client',
+    maxFileSizeMB: 10,
+  },
+  {
+    id: 'url-encode',
+    name: 'URL Encode / Decode',
+    description: 'Encode or decode URL strings',
+    category: 'developer',
+    href: '/tools/developer/url',
+    icon: 'Link2',
+    tags: ['url', 'encode', 'decode', 'percent-encoding'],
+    phase: 1,
+    processingLocation: 'client',
+  },
+  {
+    id: 'jwt-debugger',
+    name: 'JWT Debugger',
+    description: 'Decode and inspect JWT tokens',
+    category: 'developer',
+    href: '/tools/developer/jwt',
+    icon: 'Shield',
+    tags: ['jwt', 'token', 'decode', 'json web token'],
+    phase: 1,
+    processingLocation: 'client',
+  },
+  {
+    id: 'regex-tester',
+    name: 'Regex Tester',
+    description: 'Test and debug regular expressions live',
+    category: 'developer',
+    href: '/tools/developer/regex',
+    icon: 'Search',
+    tags: ['regex', 'regexp', 'pattern', 'match', 'test'],
+    phase: 1,
+    processingLocation: 'client',
+  },
+  {
+    id: 'color-picker',
+    name: 'Color Picker',
+    description: 'Pick colors and convert between HEX, RGB, HSL',
+    category: 'developer',
+    href: '/tools/developer/color',
+    icon: 'Pipette',
+    tags: ['color', 'hex', 'rgb', 'hsl', 'picker', 'converter'],
+    phase: 1,
+    processingLocation: 'client',
+  },
+  {
+    id: 'timestamp-converter',
+    name: 'Timestamp Converter',
+    description: 'Convert Unix timestamps to human-readable dates',
+    category: 'developer',
+    href: '/tools/developer/timestamp',
+    icon: 'Clock',
+    tags: ['timestamp', 'unix', 'date', 'time', 'convert'],
+    phase: 1,
+    processingLocation: 'client',
+  },
+  {
+    id: 'hash-generator',
+    name: 'Hash Generator',
+    description: 'Generate MD5, SHA-1, SHA-256, SHA-512 hashes',
+    category: 'developer',
+    href: '/tools/developer/hash',
+    icon: 'Fingerprint',
+    tags: ['hash', 'md5', 'sha256', 'sha512', 'checksum'],
+    phase: 1,
+    processingLocation: 'client',
+  },
+
+  // === GENERATOR TOOLS (Phase 1) ===
+  {
+    id: 'qr-code',
+    name: 'QR Code Generator',
+    description: 'Generate QR codes for URLs, text, email, or phone',
+    category: 'generator',
+    href: '/tools/generator/qr-code',
+    icon: 'QrCode',
+    tags: ['qr', 'qr code', 'generate', 'barcode'],
+    phase: 1,
+    processingLocation: 'client',
+  },
+  {
+    id: 'password-generator',
+    name: 'Password Generator',
+    description: 'Generate strong, random passwords instantly',
+    category: 'generator',
+    href: '/tools/generator/password',
+    icon: 'KeyRound',
+    tags: ['password', 'generate', 'random', 'secure'],
+    phase: 1,
+    processingLocation: 'client',
+  },
+  {
+    id: 'uuid-generator',
+    name: 'UUID Generator',
+    description: 'Generate UUID v4, v7, and ULID identifiers',
+    category: 'generator',
+    href: '/tools/generator/uuid',
+    icon: 'Hash',
+    tags: ['uuid', 'guid', 'ulid', 'generate', 'identifier'],
+    phase: 1,
+    processingLocation: 'client',
+  },
+  {
+    id: 'lorem-ipsum',
+    name: 'Lorem Ipsum Generator',
+    description: 'Generate placeholder text for designs and mockups',
+    category: 'generator',
+    href: '/tools/generator/lorem',
+    icon: 'AlignLeft',
+    tags: ['lorem ipsum', 'placeholder', 'text', 'generate'],
+    phase: 1,
+    processingLocation: 'client',
+  },
+
+  // === TEXT TOOLS (Phase 1) ===
+  {
+    id: 'word-counter',
+    name: 'Word Counter',
+    description: 'Count words, characters, sentences, reading time',
+    category: 'text',
+    href: '/tools/text/word-counter',
+    icon: 'FileText',
+    tags: ['word count', 'character count', 'reading time', 'text'],
+    phase: 1,
+    processingLocation: 'client',
+  },
+  {
+    id: 'case-converter',
+    name: 'Case Converter',
+    description: 'Convert text to UPPER, lower, Title, camelCase, and more',
+    category: 'text',
+    href: '/tools/text/case-converter',
+    icon: 'Type',
+    tags: ['case', 'uppercase', 'lowercase', 'camelcase', 'snakecase'],
+    phase: 1,
+    processingLocation: 'client',
+  },
+  {
+    id: 'markdown-preview',
+    name: 'Markdown Preview',
+    description: 'Write and preview Markdown with live rendering',
+    category: 'text',
+    href: '/tools/text/markdown',
+    icon: 'BookOpen',
+    tags: ['markdown', 'preview', 'md', 'render'],
+    phase: 1,
+    processingLocation: 'client',
+  },
+  {
+    id: 'diff-checker',
+    name: 'Diff Checker',
+    description: 'Compare two texts and highlight differences',
+    category: 'text',
+    href: '/tools/text/diff',
+    icon: 'GitDiff',
+    tags: ['diff', 'compare', 'text', 'difference'],
+    phase: 1,
+    processingLocation: 'client',
+  },
+
+  // === PDF TOOLS (Phase 2) ===
+  {
+    id: 'pdf-merge',
+    name: 'PDF Merge',
+    description: 'Combine multiple PDF files into one',
+    category: 'pdf',
+    href: '/tools/pdf/merge',
+    icon: 'Layers',
+    tags: ['pdf', 'merge', 'combine', 'join'],
+    phase: 2,
+    processingLocation: 'client',
+    acceptedFormats: ['application/pdf'],
+    maxFileSizeMB: 100,
+  },
+  {
+    id: 'pdf-split',
+    name: 'PDF Split',
+    description: 'Split PDF into individual pages or page ranges',
+    category: 'pdf',
+    href: '/tools/pdf/split',
+    icon: 'Scissors',
+    tags: ['pdf', 'split', 'extract', 'pages'],
+    phase: 2,
+    processingLocation: 'client',
+    acceptedFormats: ['application/pdf'],
+    maxFileSizeMB: 50,
+  },
+  {
+    id: 'pdf-compress',
+    name: 'PDF Compress',
+    description: 'Reduce PDF file size without losing quality',
+    category: 'pdf',
+    href: '/tools/pdf/compress',
+    icon: 'Archive',
+    tags: ['pdf', 'compress', 'reduce', 'optimize'],
+    phase: 2,
+    processingLocation: 'client',
+    acceptedFormats: ['application/pdf'],
+    maxFileSizeMB: 50,
+  },
+  {
+    id: 'image-to-pdf',
+    name: 'Image to PDF',
+    description: 'Convert JPG, PNG, or WEBP images to PDF',
+    category: 'pdf',
+    href: '/tools/pdf/image-to-pdf',
+    icon: 'FileImage',
+    tags: ['image to pdf', 'jpg to pdf', 'png to pdf', 'convert'],
+    phase: 2,
+    processingLocation: 'client',
+    acceptedFormats: ['image/jpeg', 'image/png', 'image/webp', 'image/gif'],
+    maxFileSizeMB: 50,
+  },
+
+  // === IMAGE TOOLS (Phase 2) ===
+  {
+    id: 'image-compress',
+    name: 'Image Compress',
+    description: 'Compress JPG, PNG, WEBP images without losing quality',
+    category: 'image',
+    href: '/tools/image/compress',
+    icon: 'ImageDown',
+    tags: ['image', 'compress', 'reduce', 'optimize', 'jpg', 'png', 'webp'],
+    phase: 2,
+    processingLocation: 'client',
+    acceptedFormats: ['image/jpeg', 'image/png', 'image/webp'],
+    maxFileSizeMB: 50,
+  },
+  {
+    id: 'image-resize',
+    name: 'Image Resize',
+    description: 'Resize images by dimensions, percentage, or preset sizes',
+    category: 'image',
+    href: '/tools/image/resize',
+    icon: 'Maximize2',
+    tags: ['image', 'resize', 'dimensions', 'scale'],
+    phase: 2,
+    processingLocation: 'client',
+    acceptedFormats: ['image/jpeg', 'image/png', 'image/webp'],
+    maxFileSizeMB: 50,
+  },
+  {
+    id: 'image-convert',
+    name: 'Image Convert',
+    description: 'Convert images between JPG, PNG, WEBP, GIF, and more',
+    category: 'image',
+    href: '/tools/image/convert',
+    icon: 'RefreshCw',
+    tags: ['image', 'convert', 'jpg', 'png', 'webp', 'gif'],
+    phase: 2,
+    processingLocation: 'client',
+    acceptedFormats: ['image/jpeg', 'image/png', 'image/webp', 'image/gif'],
+    maxFileSizeMB: 50,
+  },
+  {
+    id: 'image-crop',
+    name: 'Image Crop',
+    description: 'Crop images with free or locked aspect ratios',
+    category: 'image',
+    href: '/tools/image/crop',
+    icon: 'Crop',
+    tags: ['image', 'crop', 'trim', 'aspect ratio'],
+    phase: 2,
+    processingLocation: 'client',
+    acceptedFormats: ['image/jpeg', 'image/png', 'image/webp'],
+    maxFileSizeMB: 50,
+  },
+]
+
+// Helper functions
+export function getToolsByCategory(category: string) {
+  return tools.filter(t => t.category === category)
+}
+
+export function getToolById(id: string) {
+  return tools.find(t => t.id === id)
+}
+
+export function getRelatedTools(toolId: string, limit = 4) {
+  const tool = getToolById(toolId)
+  if (!tool) return []
+  return tools
+    .filter(t => t.category === tool.category && t.id !== toolId)
+    .slice(0, limit)
+}
+
+export function searchTools(query: string) {
+  const q = query.toLowerCase()
+  return tools.filter(t =>
+    t.name.toLowerCase().includes(q) ||
+    t.description.toLowerCase().includes(q) ||
+    t.tags.some(tag => tag.includes(q))
+  )
+}
