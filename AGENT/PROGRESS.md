@@ -128,6 +128,18 @@ File: `07-PHASE3-finalisasi.md`
 
 ---
 
+## 🚀 Phase 4 — Advanced Features & Systems
+
+File: `08-PHASE4-advanced-features.md`
+
+- [ ] Global Command Palette (`Cmd + K`)
+- [ ] Starred / Favorite Tools System
+- [ ] JSON to YAML / YAML to JSON Converter
+- [ ] URL Parser & Query String Decoder
+- [ ] EXIF Metadata Stripper
+
+---
+
 ## 📝 Catatan Session
 
 Tulis di sini kalau ada keputusan penting, workaround, atau hal yang perlu diingat antar session:
