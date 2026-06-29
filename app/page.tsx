@@ -8,6 +8,7 @@ import { ToolGrid } from '@/components/tool/tool-grid'
 import { ToolCategory, ToolMeta } from '@/types/tools'
 import { Search, CircleCheck, Zap } from 'lucide-react'
 import { useToolHistory } from '@/hooks/use-tool-history'
+import { useFavoriteTools } from '@/hooks/use-favorite-tools'
 
 const CATEGORIES: { value: ToolCategory | 'all'; label: string }[] = [
   { value: 'all', label: 'All Utilities' },
@@ -22,6 +23,7 @@ export default function Home() {
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedCategory, setSelectedCategory] = useState<ToolCategory | 'all'>('all')
   const { recentIds } = useToolHistory()
+  const { favorites, isLoaded } = useFavoriteTools()
 
   // Filter tools
   const filteredTools = tools.filter((tool) => {
@@ -39,6 +41,13 @@ export default function Home() {
   const recentTools = recentIds
     .map((id) => tools.find((t) => t.id === id))
     .filter((t): t is ToolMeta => !!t)
+
+  // Map favorite IDs to ToolMeta objects
+  const starredTools = isLoaded
+    ? favorites
+        .map((id) => tools.find((t) => t.id === id))
+        .filter((t): t is ToolMeta => !!t)
+    : []
 
   return (
     <div className="flex flex-col min-h-screen bg-(--color-surface) text-(--color-text-primary)">
@@ -123,6 +132,16 @@ export default function Home() {
 
       {/* Main Toolkit Listing */}
       <main className="flex-1 max-w-6xl w-full mx-auto px-4 py-12 space-y-10">
+        {/* Starred Utilities */}
+        {isLoaded && starredTools.length > 0 && (
+          <section className="space-y-4 animate-fade-in pb-10 border-b border-(--color-border)">
+            <h2 className="text-xl font-bold tracking-tight text-(--color-text-primary)">
+              Starred Utilities
+            </h2>
+            <ToolGrid tools={starredTools} />
+          </section>
+        )}
+
         {/* Category Selection Tab List */}
         <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none border-b border-(--color-border)">
           {CATEGORIES.map((cat) => (

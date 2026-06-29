@@ -7,9 +7,10 @@ import { Header } from '@/components/layout/header'
 import { Footer } from '@/components/layout/footer'
 import { LucideIcon } from '@/components/ui/lucide-icon'
 import { getRelatedTools } from '@/lib/tools-registry'
-import { ShieldCheck, ServerOff } from 'lucide-react'
+import { ShieldCheck, ServerOff, Star } from 'lucide-react'
 import { RelatedTools } from './related-tools'
 import { useToolHistory } from '@/hooks/use-tool-history'
+import { useFavoriteTools } from '@/hooks/use-favorite-tools'
 
 interface ToolLayoutProps {
   tool: ToolMeta
@@ -20,6 +21,8 @@ interface ToolLayoutProps {
 export function ToolLayout({ tool, children, relatedTools }: ToolLayoutProps) {
   const displayRelated = relatedTools ?? getRelatedTools(tool.id)
   const { addToHistory } = useToolHistory()
+  const { isFavorite, toggleFavorite, isLoaded } = useFavoriteTools()
+  const starred = isFavorite(tool.id)
 
   // Track page view in tool history
   React.useEffect(() => {
@@ -53,13 +56,29 @@ export function ToolLayout({ tool, children, relatedTools }: ToolLayoutProps) {
 
         {/* Tool Header */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6 mb-8 border-b border-(--color-border)">
-          <div className="space-y-2 max-w-2xl">
+          <div className="space-y-2 max-w-2xl flex-1">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-xl bg-(--color-primary-light) text-(--color-primary) flex items-center justify-center">
+              <div className="w-12 h-12 rounded-xl bg-(--color-primary-light) text-(--color-primary) flex items-center justify-center shrink-0">
                 <LucideIcon name={tool.icon} className="w-6 h-6" />
               </div>
-              <div>
-                <h1 className="text-2xl md:text-3xl font-bold tracking-tight">{tool.name}</h1>
+              <div className="flex-1">
+                <div className="flex items-center gap-2.5">
+                  <h1 className="text-2xl md:text-3xl font-bold tracking-tight">{tool.name}</h1>
+                  {isLoaded && (
+                    <button
+                      onClick={() => toggleFavorite(tool.id)}
+                      className={`p-1.5 rounded-lg border transition-all cursor-pointer ${
+                        starred
+                          ? 'bg-amber-500/10 border-amber-500/30 text-amber-500'
+                          : 'border-(--color-border) bg-(--color-surface-alt) text-(--color-text-muted) hover:text-amber-500'
+                      }`}
+                      title={starred ? 'Remove from favorites' : 'Add to favorites'}
+                      aria-label={starred ? 'Remove from favorites' : 'Add to favorites'}
+                    >
+                      <Star className={`w-4 h-4 ${starred ? 'fill-amber-500' : ''}`} />
+                    </button>
+                  )}
+                </div>
                 <p className="text-sm text-(--color-text-secondary) mt-1">{tool.description}</p>
               </div>
             </div>

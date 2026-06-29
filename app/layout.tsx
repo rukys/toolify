@@ -10,6 +10,8 @@ export const metadata: Metadata = {
   description: '100% Free browser-based utility tools. No upload, no login, no limits. Privacy by default.',
 }
 
+import { CommandPalette } from '@/components/layout/command-palette'
+
 export default function RootLayout({
   children,
 }: {
@@ -23,6 +25,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-(--color-surface) text-(--color-text-primary)">
         {children}
+        <CommandPalette />
       </body>
     </html>
   )

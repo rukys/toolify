@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { Sun, Moon, Menu, X, Cpu } from 'lucide-react'
+import { Sun, Moon, Menu, X, Cpu, Search } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Button } from '@/components/ui/button'
@@ -82,7 +82,19 @@ export function Header() {
         </nav>
 
         {/* Actions */}
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden md:flex items-center gap-3">
+          <Button
+            variant="outline"
+            onClick={() => window.dispatchEvent(new CustomEvent('open-command-palette'))}
+            className="flex items-center gap-2 h-9 px-3 text-xs text-(--color-text-secondary) border-(--color-border) bg-(--color-surface-alt) hover:text-(--color-primary) cursor-pointer rounded-lg"
+          >
+            <Search className="w-3.5 h-3.5" />
+            <span>Search...</span>
+            <kbd className="inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded-sm border border-(--color-border) bg-(--color-surface) text-[9px] font-medium text-(--color-text-muted) ml-2">
+              ⌘K
+            </kbd>
+          </Button>
+
           <Button
             variant="ghost"
             size="icon"
@@ -99,7 +111,17 @@ export function Header() {
         </div>
 
         {/* Mobile menu trigger + theme toggle */}
-        <div className="flex items-center gap-2 md:hidden">
+        <div className="flex items-center gap-1 md:hidden">
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => window.dispatchEvent(new CustomEvent('open-command-palette'))}
+            className="w-9 h-9 rounded-lg hover:bg-(--color-surface-alt) cursor-pointer"
+            aria-label="Search tools"
+          >
+            <Search className="w-5 h-5 text-(--color-text-secondary)" />
+          </Button>
+
           <Button
             variant="ghost"
             size="icon"
