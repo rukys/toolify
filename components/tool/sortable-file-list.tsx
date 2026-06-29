@@ -21,6 +21,7 @@ import {
 import { CSS } from '@dnd-kit/utilities'
 import { Trash2, GripVertical, FileText, Image as ImageIcon } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { formatSize } from '@/lib/utils'
 
 export interface SortableItem {
   id: string
@@ -34,12 +35,6 @@ interface SortableFileListProps {
   onItemsChange: (items: SortableItem[]) => void
   onRemove: (id: string) => void
   layout?: 'list' | 'grid'
-}
-
-const formatSize = (bytes: number) => {
-  if (bytes < 1024) return `${bytes} B`
-  if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`
-  return `${(bytes / 1024 / 1024).toFixed(1)} MB`
 }
 
 function SortableFileItemComponent({

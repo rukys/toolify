@@ -3,7 +3,7 @@
 import { useCallback } from 'react'
 import { useDropzone, FileRejection } from 'react-dropzone'
 import { Upload, File as FileIcon, X } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import { cn, formatSize } from '@/lib/utils'
 
 interface DropZoneProps {
   accept: Record<string, string[]>   // react-dropzone format
@@ -60,7 +60,7 @@ export function DropZone({
             <FileIcon className="w-5 h-5 text-[var(--color-primary)] shrink-0" />
             <div className="flex-1 min-w-0">
               <p className="text-sm font-medium truncate">{file.name}</p>
-              <p className="text-xs text-[var(--color-text-muted)]">{formatBytes(file.size)}</p>
+              <p className="text-xs text-[var(--color-text-muted)]">{formatSize(file.size)}</p>
             </div>
             {onRemove && (
               <button
@@ -105,8 +105,4 @@ export function DropZone({
   )
 }
 
-function formatBytes(bytes: number): string {
-  if (bytes < 1024) return bytes + ' B'
-  if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB'
-  return (bytes / (1024 * 1024)).toFixed(1) + ' MB'
-}
+

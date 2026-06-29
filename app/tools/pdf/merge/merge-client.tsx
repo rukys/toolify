@@ -12,6 +12,7 @@ import { OutputArea } from '@/components/tool/output-area'
 import { toast } from 'sonner'
 import { mergePDFs } from '@/lib/converters/pdf-merge'
 import { Button } from '@/components/ui/button'
+import { formatSize } from '@/lib/utils'
 import { Label } from '@/components/ui/label'
 import { Trash2 } from 'lucide-react'
 
@@ -86,11 +87,7 @@ export default function MergeClient() {
       const blob = new Blob([mergedBytes as unknown as BlobPart], { type: 'application/pdf' })
 
       const totalInputBytes = filesToMerge.reduce((sum, f) => sum + f.size, 0)
-      const formatSize = (bytes: number) => {
-        if (bytes < 1024) return `${bytes} B`
-        if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`
-        return `${(bytes / 1024 / 1024).toFixed(1)} MB`
-      }
+
 
       setOutput({
         blob,

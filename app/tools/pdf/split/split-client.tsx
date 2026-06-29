@@ -10,6 +10,7 @@ import { OutputArea } from '@/components/tool/output-area'
 import { toast } from 'sonner'
 import { splitPDF, zipPDFs, SplitMode } from '@/lib/converters/pdf-split'
 import { Label } from '@/components/ui/label'
+import { formatSize } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { FileIcon, Trash2, Layers, Grid } from 'lucide-react'
@@ -103,11 +104,7 @@ export default function SplitClient() {
         n: Number(nInput),
       })
 
-      const formatSize = (bytes: number) => {
-        if (bytes < 1024) return `${bytes} B`
-        if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`
-        return `${(bytes / 1024 / 1024).toFixed(1)} MB`
-      }
+
 
       if (blobs.length === 1) {
         // Single PDF file output
