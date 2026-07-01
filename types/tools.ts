@@ -11,7 +11,7 @@ export interface ToolMeta {
   icon: string                  // Lucide icon name as string
   tags: string[]                // for search index
   isNew?: boolean
-  phase: 1 | 2 | 3 | 4 | 5 | 6 | 7
+  phase: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8
   processingLocation: 'client' | 'server'
   acceptedFormats?: string[]
   maxFileSizeMB?: number
